@@ -13,6 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+
 </head>
 
 <body>
@@ -26,32 +29,25 @@
     <div class="soft-blue-container">
       <div class="small-container">
 
+
         <div class="criteria-selector-top">
-
           <div>
-            <select class="form-select round secteur" aria-label="Default select example">
-              <option selected>Secteur</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select id="secteur" class="form-select round secteur" multiple>
+              <option value="ALIMENTATION">ALIMENTATION</option>
+              <option value="BATIMENT">BATIMENT</option>
+              <option value="PRODUCTION/FABRICATION">PRODUCTION/FABRICATION</option>
+              <option value="SERVICES">SERVICES</option>
             </select>
           </div>
-
           <div>
-            <select class="form-select round activite" aria-label="Default select example">
-              <option selected>Activité</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select id="activite" class="form-select round activite" multiple>
             </select>
           </div>
-
         </div>
 
         <div class="slide-selectors">
-
           <div class="prix">
-            Prix de vente du fonds de commerce
+            Prix de vente du fonds de commerce €
             <div class="wrapper">
               <div class="container-value">
                 <div class="value1">
@@ -61,20 +57,19 @@
                 </div>
                 <div class="value2">
                   <span id="range2Prix">
-                    100
+                    2000000
                   </span>
                 </div>
               </div>
-
               <div class="container-slider">
                 <div class="slider-trackPrix"></div>
-                <input type="range" min="0" max="100" value="30" id="slider-1Prix" oninput="slideOne('Prix')">
-                <input type="range" min="0" max="100" value="70" id="slider-2Prix" oninput="slideTwo('Prix')">
+                <input type="range" min="0" max="2000000" value="0" id="slider-1Prix" oninput="slideOne('Prix')">
+                <input type="range" min="0" max="2000000" value="2000000" id="slider-2Prix" oninput="slideTwo('Prix')">
               </div>
             </div>
           </div>
           <div class="loyer">
-            Loyer annuel
+            Loyer annuel €
 
             <div class="wrapper">
               <div class="container-value">
@@ -85,15 +80,15 @@
                 </div>
                 <div class="value2">
                   <span id="range2Loyer">
-                    100
+                    150000
                   </span>
                 </div>
               </div>
 
               <div class="container-slider">
                 <div class="slider-trackLoyer"></div>
-                <input type="range" min="0" max="100" value="30" id="slider-1Loyer" oninput="slideOne('Loyer')">
-                <input type="range" min="0" max="100" value="70" id="slider-2Loyer" oninput="slideTwo('Loyer')">
+                <input type="range" min="0" max="150000" value="0" id="slider-1Loyer" oninput="slideOne('Loyer')">
+                <input type="range" min="0" max="150000" value="150000" id="slider-2Loyer" oninput="slideTwo('Loyer')">
               </div>
             </div>
           </div>
@@ -108,15 +103,15 @@
                 </div>
                 <div class="value2">
                   <span id="range2Effectif">
-                    100
+                    50
                   </span>
                 </div>
               </div>
 
               <div class="container-slider">
                 <div class="slider-trackEffectif"></div>
-                <input type="range" min="0" max="100" value="30" id="slider-1Effectif" oninput="slideOne('Effectif')">
-                <input type="range" min="0" max="100" value="70" id="slider-2Effectif" oninput="slideTwo('Effectif')">
+                <input type="range" min="0" max="50" value="0" id="slider-1Effectif" oninput="slideOne('Effectif')">
+                <input type="range" min="0" max="50" value="50" id="slider-2Effectif" oninput="slideTwo('Effectif')">
               </div>
             </div>
           </div>
@@ -129,30 +124,33 @@
         </div>
         <div class="criteria-selector-down criteria-selector-top">
           <div>
-            <select class="form-select round departement" aria-label="Default select example">
-              <option selected>Département</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select id="departement" class="form-select round departement" aria-label="Default select example">
+              <option value="">Département</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="13">13</option>
+              <option value="83">83</option>
+              <option value="84">84</option>
             </select>
           </div>
-          <div>
-            <form>
-              <input type="text" class="form-control round max-width" aria-label="Default" placeholder="Code postale"
-                aria-describedby="inputGroup-sizing-default">
-            </form>
 
+          <div >
+            <input type="text" class="input-bar search-input-div" autocomplete="off" id="searchInput" placeholder="  Ville ou code postal">
+            <div id="suggestions" class="suggestions-container"></div>
           </div>
+          
+
         </div>
         Retrouvez votre annonce grâce à sa référence :
         <div class="search-ref">
           <form>
-            <input type="text" class="form-control round" aria-label="Default" placeholder="Ref. Annonce"
+            <input id="annonce" type="text" class="form-control round" aria-label="Default" placeholder="Ref. Annonce"
               aria-describedby="inputGroup-sizing-default">
           </form>
         </div>
         <div class="search-button ">
-          <button type="button" class="btn btn-danger round">Rechercher</button>
+          <button type="button" class="btn btn-danger round" onclick="fetchData();">Rechercher</button>
         </div>
 
 
@@ -195,6 +193,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script type="text/javascript" src="function.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </body>
 
