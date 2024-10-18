@@ -48,6 +48,7 @@ function getMinGapOne(name){
 
 function fetchData(params) {
 
+  document.querySelector('.loader-container').style.display = 'flex';
 
 var secteurSelect = document.getElementById('secteur');
 var secteur = Array.from(secteurSelect.selectedOptions).map(option => option.value);
@@ -92,6 +93,10 @@ console.log("reference",reference);
 var departement = document.getElementById('departement').value;;
 console.log("departement",departement);
 
+var checkbox = false;
+document.getElementById("achatMursCheckbox").checked == true ? checkbox = "OUI" : checkbox = "NON";
+console.log("checkbox",checkbox);   
+
 
 // Objet avec tous les paramètres à inclure dans l'URL
 var params = {
@@ -106,10 +111,12 @@ LoyerMax: LoyerMax ?? null,
 EffectifMin: EffectifMin ?? null,
 EffectifMax: EffectifMax ?? null,
 departement: departement ?? null,
-reference: reference ?? null
+reference: reference ?? null,
+checkbox : checkbox ?? null
 };
 
-      var urlStart = 'http://10.100.3.227:2020/getSheetData'; 
+      const urlStart = 'http://82.97.22.52:2020/getSheetData';
+      //var urlStart = 'http://10.100.3.227:2020/getSheetData'; 
         fetch(urlStart, {
           method: 'POST',
           headers: {
@@ -125,11 +132,22 @@ reference: reference ?? null
                 return response.json();  // Transforme la réponse en JSON
             })
             .then(data => {
-                console.log(data);  // Affiche les données récupérées dans la console
-            })
-            .catch(error => {
-                console.error('Erreur lors de la récupération des données:', error);
-            });  
+              document.querySelector('.loader-container').style.display = 'none';
+              const container = document.getElementById('annonces-container');
+              container.innerHTML = '';
+              const resultDiv = document.getElementById('result');
+              resultDiv.innerHTML = "";
+              const numberOfOffers = data.length;
+            resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> offres correspondent à votre recherche`;
+              // Parcourt chaque annonce et génère une carte
+              data.forEach(annonce => {
+                
+                  container.innerHTML += createCard(annonce);
+              });
+          })
+          .catch(error => {
+              console.error('Erreur lors de la récupération des données:', error);
+          });
 }
 
 function fetchActivite( ){
@@ -235,4 +253,40 @@ function parseCSV(csvText) {
 
 function cleanValue(value) {
   return value.replace(/[\r\n]+/g, '').trim();
+}
+
+function createCard(annonce) {
+
+  var departement = "";
+  if (annonce.departement == "06") {
+      departement = "Alpes-Maritimes (06)";
+  } else if (annonce.departement == "04") {
+      departement = "Alpes-de-Haute-Provence (04)";
+  } else if (annonce.departement == "05") {
+      departement = "Hautes-Alpes (05)";
+  } else if (annonce.departement == "13") {
+      departement = "Bouches-du-Rhône (13)";
+  } else if (annonce.departement == "83") {
+      departement = "Var (83)";
+  } else if (annonce.departement == "84") {
+      departement = "Vaucluse (84)";}
+
+
+
+  annonce.departement
+  return `
+      <div class="card">
+          <div class="reference-card margin-bottom">Rèf. ${annonce.numeroAnnonce}</div>
+          <div class="titreAnnonce-card margin-bottom">${annonce.titreAnnonce.toUpperCase()}</div>
+          <div class="departement margin-bottom">${departement}</div>
+          <div class="line-height margin-bottom">${annonce.descriptif}</div>
+          <div class="div-blue-writing" ><span class="blue-writing" >Prix :</span> ${annonce.prixVente}</div>
+          <div class="div-blue-writing" ><span class="blue-writing">Loyer /an :</span> ${annonce.loyerAnnuel}</div>
+          <div class="div-blue-writing" ><span class="blue-writing">Effectif :</span> ${annonce.effectif}</div>
+          <div class="div-blue-writing" ><span class="blue-writing">Surface du local :</span> ${annonce.surface} m²</div>
+          <div class="contact">
+              <strong>Contact : <BR> </strong> <a href="mailto:${annonce.mail}">${annonce.mail}</a> -  <a href="tel:${annonce.tel}">${annonce.tel}</a>
+          </div>
+      </div>
+  `;
 }

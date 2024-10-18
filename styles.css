@@ -118,7 +118,7 @@ body{
         -webkit-appearance: none;
         height: 1em;
         width: 1em;
-        background-color: #EA4B3C;
+        background-color: #ea4b3c;
         border: 2px solid #ffffff;
         cursor: pointer;
         margin-top: -5px;
@@ -132,7 +132,7 @@ body{
         width: 1em;
         cursor: pointer;
         border-radius: 50%;
-        background-color: #EA4B3C;
+        background-color: #ea4b3c;
         border: 2px solid #ffffff;
         pointer-events: auto;
         border: none;
@@ -144,7 +144,7 @@ body{
         width: 1em;
         cursor: pointer;
         border-radius: 50%;
-        background-color: #EA4B3C;
+        background-color: #ea4b3c;
         border: 2px solid #ffffff;
         pointer-events: auto;
       }
@@ -206,6 +206,7 @@ body{
 .effectif, .prix, .loyer {
   margin-bottom : 15px;
   line-height: 18px;
+  font-family: 'Montserrat',Arial,sans-serif;
 }
 
 .max-width {
@@ -244,8 +245,8 @@ body{
 
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color: #ea4b3c!important; /* Fond rouge pour les choix sélectionnés */
-  border: 1px solid  #ea4b3c!important;; /* Ajouter une bordure si nécessaire */
+  background-color: #ea4b3c !important; /* Fond rouge pour les choix sélectionnés */
+  border: 1px solid  #ea4b3c !important;; /* Ajouter une bordure si nécessaire */
   color: white; /* Texte en blanc pour le contraste */
   white-space: normal; /* Permettre le retour à la ligne */
   overflow: visible; /* Rendre visible le débordement */
@@ -283,11 +284,15 @@ body{
     border: 1px solid #fff;
     }
     
-    .search-input-div:hover {
-    border: 1px solid #91b6c0;
-    }
+    #departement:focus {
+      outline: none; /* Désactive le contour bleu */
+      box-shadow: none; /* Désactive l'ombre de focus (selon le navigateur) */
+  }
 
-
+  #annonce:focus {
+    outline: none; /* Désactive le contour bleu */
+    box-shadow: none; /* Désactive l'ombre de focus (selon le navigateur) */
+}
       
       .search-input {
       border-radius: 50px; /* Arrondir les coins du champ de recherche */
@@ -346,3 +351,178 @@ body{
       background-color: #f0f0f0; /* Change la couleur de fond au survol */
       color: #333; /* Change la couleur du texte au survol */
       }
+
+
+      .card {
+        padding-left: 40px !important;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 40px;
+        margin: 0 auto;
+        width: auto;
+  max-width: 50vw;
+  margin-bottom: 30px;
+  border-radius: 40px !important;
+  background-color: #f2f4f7 !important;
+  border: 0px !important;
+    }
+
+    .card h2 {
+        color: #ea4b3c;
+        font-size: 20px;
+    }
+    .card h3 {
+        color: #2C3E50;
+        font-size: 18px;
+    }
+    .card p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .contact {
+        margin-top: 10px;
+  color: #0F3250;
+  text-align: center;
+    }
+
+    .contact a {
+      color: #0F3250 !important; /* Couleur du texte des liens en rouge */
+      text-decoration: underline; /* Ajoute un soulignement sous le lien */
+      text-decoration-color: #0F3250 !important; /* Définit la couleur du soulignement en rouge */
+  }
+
+    .result {
+      font-size: 18px;
+      margin: 20px 0;
+  }
+  .result .number {
+      font-size: 36px; /* Taille de police plus grande pour le nombre */
+      color: #ea4b3c; /* Couleur rouge pour le nombre */
+      font-weight: bold; /* Met en gras */
+  }
+
+
+  .reference-card {
+    background-color: #B0D2D9;
+  width: fit-content;
+  color: white;
+  }
+
+  .titreAnnonce-card {
+    font-family: 'Montserrat',Arial,sans-serif;
+  color: #ea4b3c;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1;
+  }
+
+  .departement {
+    width: fit-content;
+  font-size: large;
+  font-weight: bold;
+  color:#0F3250;
+  font-family: 'Montserrat',Arial,sans-serif;
+  }
+
+  .blue-writing {
+    color: #B0D2D9;
+  font-size: large;
+  font-weight: 900;
+  }
+
+
+  .div-blue-writing{
+    line-height: 20px;
+  }
+
+  .margin-bottom {
+    margin-bottom: 5px;
+  }
+
+  .line-height {
+    line-height: 17px;
+    font-family: 'Montserrat',Arial,sans-serif;
+  }
+
+ 
+
+  .red {
+    background-color:#ea4b3c !important;
+    border: 0px !important;
+  }
+
+  .red:hover {
+    background-color:#0F3250 !important;
+    border: 0px !important;
+  }
+
+
+  .checkbox-container {
+    font-family: 'Montserrat',Arial,sans-serif;
+  }
+
+  .loader {
+    border: 8px solid #B0D2D9; /* Couleur de fond (gris) */
+    border-top: 8px solid #ea4b3c; /* Couleur de la bordure supérieure (bleue) */
+    border-radius: 50%; /* Forme circulaire */
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Animation fluide */
+}
+
+/* Animation pour faire tourner le loader */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Optionnel: Centrer le loader sur la page */
+.loader-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+  @media screen and (max-width: 700px) {
+    .card {
+  max-width: 90vw;
+
+  padding-left: 10px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  margin: 0 auto;
+margin-bottom: 20px;
+border-radius: 20px !important;
+background-color: #f2f4f7 !important;
+border: 0px !important;
+
+
+  }
+  .soft-blue-container {
+    padding-left: 20px;
+  padding-right: 20px;
+  }
+  }
+
+
+  .littleText {
+    font-style: italic; /* Met le texte en italique */
+    font-size: 12px; /* Taille du texte plus petite */
+    color: #666; /* Couleur du texte (facultatif) */
+}
+
+.littleText input {
+    display: block; /* Pour que l'input reste au-dessus du texte */
+    margin-bottom: 5px; /* Un peu d'espace entre l'input et le texte */
+}
+
+ 

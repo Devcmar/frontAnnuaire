@@ -118,7 +118,7 @@
         </div>
         <div class="select-achat">
           <label class="checkbox-container">
-            <input type="checkbox"> Achat des murs possible
+            <input id="achatMursCheckbox" type="checkbox"> Achat des murs possible
             <span class="checkmark"></span>
           </label>
         </div>
@@ -135,14 +135,18 @@
             </select>
           </div>
 
-          <div >
+          <div class="littleText">
             <input type="text" class="input-bar search-input-div" autocomplete="off" id="searchInput" placeholder="  Ville ou code postal">
+            Nous vous afficherons les annonces à proximité
             <div id="suggestions" class="suggestions-container"></div>
           </div>
           
 
         </div>
-        Retrouvez votre annonce grâce à sa référence :
+        <div class="checkbox-container">
+          Retrouvez votre annonce grâce à sa référence :
+        </div>
+        
         <div class="search-ref">
           <form>
             <input id="annonce" type="text" class="form-control round" aria-label="Default" placeholder="Ref. Annonce"
@@ -150,42 +154,20 @@
           </form>
         </div>
         <div class="search-button ">
-          <button type="button" class="btn btn-danger round" onclick="fetchData();">Rechercher</button>
+          <button type="button" class="red btn btn-danger round" onclick="fetchData();">Rechercher</button>
         </div>
 
 
       </div>
     </div>
-
-    <div class="result">
-      xx offres correspondent à votre recherche
+    <div class="loader-container">
+      <div class="loader"></div>
+  </div>
+    <div id="result" class="result">
+      
     </div>
 
-    <div class="card-list">
-      <div class="one-card">
-        <div class="ref">
-        </div>
-        <div class="title">
-        </div>
-        <div class="departement">
-        </div>
-        <div class="description">
-        </div class="prix-text">
-        <div>
-        </div class="loyer-text">
-        <div>
-        </div class="effectif-text">
-        <div>
-        </div class="contact">
-        <div>
-        </div class="contact-mail">
-        <div>
-        </div>
-      </div>
-    </div>
-
-
-<h1>Données de la feuille Google Sheets</h1>
+    <div id="annonces-container"></div>
     <pre id="data"></pre>
 
   </div>
