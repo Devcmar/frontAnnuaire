@@ -278,7 +278,7 @@ function createCard(annonce) {
   annonce.departement
   return `
       <div class="card">
-          <div class="reference-card margin-bottom">Rèf. ${annonce.numeroAnnonce}</div>
+          <div class="reference-card margin-bottom">Réf. ${annonce.numeroAnnonce}</div>
           <div class="titreAnnonce-card margin-bottom">${annonce.titreAnnonce.toUpperCase()}</div>
           <div class="departement margin-bottom">${departement}</div>
           <div class="line-height margin-bottom">${annonce.descriptif}</div>
