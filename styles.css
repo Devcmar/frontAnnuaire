@@ -325,7 +325,7 @@ body{
       
       .suggestions-container {
       border: 1px solid #91b6c0;
-      position: fixed;
+      position: absolute;
       background-color: white;
       max-height: 200px;
       overflow-y: auto;
