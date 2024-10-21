@@ -216,6 +216,8 @@ body{
 .result{
   text-align: center;
   margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .activite {
