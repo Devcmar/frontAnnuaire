@@ -337,7 +337,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const secteurSearchInput = document.querySelector('#secteur + span .select2-search__field');
         const activiteSearchInput = document.querySelector('#activite + span .select2-search__field');
-        const searchInput = document.getElementById('searchInput');
 
         if (secteurSearchInput) {
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
@@ -349,12 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
             activiteSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
             console.error('Activite search input not found.');
-        }
-
-        if (searchInput) {
-            searchInput.parentNode.insertBefore(searchIconSpan.cloneNode(true), searchInput.nextSibling);
-        } else {
-            console.error('Search input not found.');
         }
     }
 
