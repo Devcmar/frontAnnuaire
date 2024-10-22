@@ -6,6 +6,7 @@ body {
 }
 
 .title {
+    position: relative;
     font-family: 'Montserrat', Arial, sans-serif;
     color: #0f3250;
     font-size: 5rem;
