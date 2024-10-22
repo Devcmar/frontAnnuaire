@@ -13,7 +13,7 @@ body {
     text-align: center;
     line-height: 1;
     /* Réduit l'espacement vertical entre les lignes du texte */
-    margin-top: 6vh;
+    margin-top: 6vh auto 0;
 }
 
 .container_all {
@@ -51,6 +51,10 @@ body {
     margin-bottom: 20px;
 }
 
+.select2-results {
+    font-family: 'Montserrat' !important;
+}
+
 .round {
     border-radius: 20px !important;
 }
@@ -70,6 +74,7 @@ body {
 .wrapper {
     position: relative;
     width: 100%;
+    margin: 10px 0 25px;
     border-radius: 10px;
 }
 
@@ -174,12 +179,14 @@ input[type="range"]:active::-webkit-slider-thumb {
 .value2 {
     width: 20%;
     /* Garde 32% pour chaque élément */
-    text-align: center;
-    /* Centre le texte dans chaque élément */
     font-weight: 500;
     font-size: 15px;
     color: #ffffff;
 }
+
+.value1 {text-align:left;padding-left:5px}
+
+.value2 {text-align:right;padding-right:5px}
 
 .effectif {
     margin-bottom: 10px;
@@ -253,6 +260,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .select2-container--default .select2-selection--multiple {
+    padding-left: 5px !important;
     background-color: white;
     /* Changer le fond à rouge */
     border: 1px solid #ccc;
@@ -339,7 +347,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .input-bar {
-    padding-left: 20px;
+    padding-left: 10px;
     background-color: #fff;
     border: #fff;
     outline: none;
@@ -581,16 +589,22 @@ input[type="range"]:active::-webkit-slider-thumb {
 .littleText {
     font-style: italic;
     /* Met le texte en italique */
-    font-size: 12px;
+    font-size: 10px;
     /* Taille du texte plus petite */
     color: #666;
     /* Couleur du texte (facultatif) */
+    font-family: 'Montserrat';
 }
 
 .littleText input {
+    width: 100%;
     display: block;
     /* Pour que l'input reste au-dessus du texte */
     margin-bottom: 5px;
     /* Un peu d'espace entre l'input et le texte */
     text-transform: capitalize;
+}
+
+.littleText #text {
+    padding: 0 0 0 20px;
 }
