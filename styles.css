@@ -39,7 +39,12 @@ body {
 
 .small-container {max-width:520px}
 
-.intro-text {font-family:'Montserrat', Arial, sans-serif}
+.intro-text {
+    max-width: 900px;
+    padding: 20px 20px 0;
+    text-align: center;
+    font-family:'Montserrat', Arial, sans-serif;
+}
 
 .criteria-selector-top {
     display: flex;
