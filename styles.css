@@ -51,7 +51,6 @@ body {
     margin-bottom: 20px;
 }
 
-
 .round {
     border-radius: 20px !important;
 }
@@ -191,7 +190,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     width: 100%;
 }
 
-
 .departement {
     width: fit-content;
 }
@@ -247,15 +245,12 @@ input[type="range"]:active::-webkit-slider-thumb {
     max-width: 60vw;
 }
 
-
 .select2-container.active {
     display: block;
     /* Rendre visible avec une classe active */
     opacity: 1;
     /* Rendre l'opacité à 1 lorsque actif */
 }
-
-
 
 .select2-container--default .select2-selection--multiple {
     background-color: white;
@@ -267,7 +262,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     color: white;
     font-family: 'Montserrat';
 }
-
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: #ea4b3c !important;
@@ -309,7 +303,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Limite la largeur maximale */
     max-height: 40px;
 }
-
 
 .search-input-div {
     border-radius: 50px;
@@ -385,7 +378,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     padding: 5px;
 }
 
-
 /* Styles pour chaque élément de suggestion */
 .suggestion-item {
     padding: 10px;
@@ -404,7 +396,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     color: #333;
     /* Change la couleur du texte au survol */
 }
-
 
 .card {
     padding-left: 40px !important;
@@ -472,7 +463,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Met en gras */
 }
 
-
 .reference-card {
     background-color: #B0D2D9;
     width: fit-content;
@@ -505,7 +495,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     font-weight: 900;
 }
 
-
 .div-blue-writing {
     line-height: 20px;
     font-family: 'Montserrat';
@@ -520,8 +509,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
-
-
 .red {
     background-color: #ea4b3c !important;
     border: 0px !important;
@@ -531,7 +518,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     background-color: #0F3250 !important;
     border: 0px !important;
 }
-
 
 .checkbox-container {
     font-family: 'Montserrat', Arial, sans-serif;
@@ -569,7 +555,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     margin-top: 10px;
 }
 
-
 @media screen and (max-width: 700px) {
     .card {
         max-width: 90vw;
@@ -592,7 +577,6 @@ input[type="range"]:active::-webkit-slider-thumb {
         padding-right: 20px;
     }
 }
-
 
 .littleText {
     font-style: italic;
