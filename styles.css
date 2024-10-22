@@ -544,8 +544,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     .card {
         max-width: 90vw;
         padding: 30px !important;
-        margin: 0 auto;
-        margin-bottom: 20px;
         border-radius: 20px !important;
         background-color: #f2f4f7 !important;
         border: 0px !important;
