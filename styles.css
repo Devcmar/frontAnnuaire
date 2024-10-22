@@ -1,3 +1,7 @@
+#id-map-where html {
+    scrollbar-width: none;
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -12,7 +16,6 @@ body {
     font-style: normal;
     text-align: center;
     line-height: 1;
-    /* Réduit l'espacement vertical entre les lignes du texte */
     margin: 6vh auto 0;
 }
 
@@ -27,18 +30,13 @@ body {
 
 .soft-blue-container {
     background-color: #B0D2D9;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 20px 10px 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: column;
     justify-content: center;
-    /* Centrage horizontal */
     align-items: center;
-    /* Centrage vertical */
 }
 
 .small-container {max-width:520px}
@@ -65,7 +63,6 @@ body {
 
 .item {
     flex: 1 1 100%;
-    /* Prenez tout l'espace disponible sur mobile */
     margin: 10px;
 }
 
@@ -172,11 +169,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 .container-value {
     display: flex;
     justify-content: space-between;
-    /* Aligne value1 à gauche et value2 à droite */
     align-items: center;
-    /* Centre verticalement */
     width: 100%;
-    /* S'assure que le conteneur prend la largeur complète */
 }
 
 .value1,
@@ -211,9 +205,18 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .search-button {
+    margin-top: 40px;
     display: flex;
     flex-direction: row-reverse;
+}
 
+.search-button button {
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 50px !important;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .5s;
 }
 
 .round {
@@ -247,25 +250,19 @@ input[type="range"]:active::-webkit-slider-thumb {
 .criteria-selector-top {
     display: flex;
     gap: 20px;
-    /* Espacement entre les sélecteurs */
     max-width: 60vw;
 }
 
 .select2-container.active {
     display: block;
-    /* Rendre visible avec une classe active */
     opacity: 1;
-    /* Rendre l'opacité à 1 lorsque actif */
 }
 
 .select2-container--default .select2-selection--multiple {
     padding: 2px 0 0 10px !important;
     background-color: white;
-    /* Changer le fond à rouge */
     border: 1px solid #ccc;
-    /* Ajouter une bordure si nécessaire */
     border-radius: 4px;
-    /* Coins arrondis */
     color: white;
     font-family: 'Montserrat', Arial, sans-serif;
     border-radius: 50px !important;
@@ -273,18 +270,11 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: #ea4b3c !important;
-    /* Fond rouge pour les choix sélectionnés */
     border: 1px solid #ea4b3c !important;
-    ;
-    /* Ajouter une bordure si nécessaire */
     color: white;
-    /* Texte en blanc pour le contraste */
     white-space: normal;
-    /* Permettre le retour à la ligne */
     overflow: visible;
-    /* Rendre visible le débordement */
     padding: 5px;
-    /* Ajouter un peu de padding */
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
@@ -292,29 +282,21 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__clear {
-
     color: black;
 }
 
 .form-select.round.activite {
-    width: 100%;
-    /* S'assure que le sélecteur prend toute la largeur du conteneur */
     width: 300px;
-    /* Limite la largeur maximale */
     max-height: 40px;
 }
 
 .form-select.round.secteur {
-    width: 100%;
-    /* S'assure que le sélecteur prend toute la largeur du conteneur */
     width: 200px;
-    /* Limite la largeur maximale */
     max-height: 40px;
 }
 
 .search-input-div {
     border-radius: 50px;
-    /* Arrondir les coins du champ de recherche */
     font-size: 16px;
     width: auto;
     outline: none;
@@ -325,23 +307,17 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 #departement:focus {
     outline: none;
-    /* Désactive le contour bleu */
     box-shadow: none;
-    /* Désactive l'ombre de focus (selon le navigateur) */
 }
 
 #annonce:focus {
     outline: none;
-    /* Désactive le contour bleu */
     box-shadow: none;
-    /* Désactive l'ombre de focus (selon le navigateur) */
 }
 
 .search-input {
     border-radius: 50px;
-    /* Arrondir les coins du champ de recherche */
     padding: 10px 40px 10px 20px;
-    /* Ajouter de l'espace pour l'icône à droite */
     font-size: 16px;
     width: 250px;
 }
@@ -351,18 +327,14 @@ input[type="range"]:active::-webkit-slider-thumb {
     background-color: #fff;
     border: #fff;
     outline: none;
-    /* Supprimer la bordure bleue par défaut */
     box-shadow: none;
-    /* Supprimer toute ombre qui pourrait apparaître */
     font-family: "Montserrat";
     height: 36px;
 }
 
 .input-bar:focus {
     border-color: #fff;
-    /* Couleur de la bordure lorsque le champ est focalisé */
     box-shadow: none;
-    /* Supprimer l'ombre portée lorsque le champ est focalisé */
 }
 
 .search-icon {
@@ -380,7 +352,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     overflow-y: auto;
     z-index: 10;
     display: none;
-    /* Initialement caché */
     margin-bottom: 20px;
     border-radius: 5px;
     padding: 5px;
@@ -390,9 +361,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 .suggestion-item {
     padding: 10px;
     cursor: pointer;
-    /* Change le curseur en pointeur pour indiquer que c'est cliquable */
     border-bottom: 1px solid #ddd;
-    /* Ajoute une bordure entre les éléments */
     font-family: 'Montserrat', Arial, sans-serif;
     font-size: 13px;
 }
@@ -400,9 +369,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 /* Style pour l'effet de survol */
 .suggestion-item:hover {
     background-color: #f0f0f0;
-    /* Change la couleur de fond au survol */
     color: #333;
-    /* Change la couleur du texte au survol */
 }
 
 #annonce {color:#0F3250}
@@ -445,11 +412,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .contact a {
     color: #0F3250 !important;
-    /* Couleur du texte des liens en rouge */
-    text-decoration: underline;
-    /* Ajoute un soulignement sous le lien */
+    text-decoration: none;
     text-decoration-color: #0F3250 !important;
-    /* Définit la couleur du soulignement en rouge */
     transition: .5s;
 }
 
@@ -466,19 +430,17 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .result .number {
     font-size: 36px;
-    /* Taille de police plus grande pour le nombre */
     color: #ea4b3c;
-    /* Couleur rouge pour le nombre */
     font-weight: bold;
-    /* Met en gras */
 }
 
 .reference-card {
-    background-color: #B0D2D9;
+    background-color: #0f3250;
     width: fit-content;
     padding: 0 5px;
     color: white;
     font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
 }
 
 .titreAnnonce-card {
@@ -493,22 +455,25 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .departement {
     width: fit-content;
-    padding-left: 15px !important;
     font-size: large;
     font-weight: bold;
     color: #0F3250;
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
+.criteria-selector-down .departement {padding-left:15px !important}
+
 .blue-writing {
-    color: #B0D2D9;
+    color: #0f3250;
     font-size: large;
     font-weight: 900;
 }
 
 .div-blue-writing {
+    margin-bottom: 5px;
     line-height: 20px;
     font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 17px;
 }
 
 .margin-bottom {
@@ -516,7 +481,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .line-height {
-    line-height: 17px;
+    margin-bottom: 10px;
+    line-height: 20px;
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
@@ -531,21 +497,18 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .checkbox-container {
+    margin-bottom: 5px;
     color: #0f3250;
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .loader {
     border: 8px solid #B0D2D9;
-    /* Couleur de fond (gris) */
     border-top: 8px solid #ea4b3c;
-    /* Couleur de la bordure supérieure (bleue) */
     border-radius: 50%;
-    /* Forme circulaire */
     width: 60px;
     height: 60px;
     animation: spin 1s linear infinite;
-    /* Animation fluide */
 }
 
 /* Animation pour faire tourner le loader */
@@ -570,7 +533,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 @media screen and (max-width: 700px) {
     .card {
         max-width: 90vw;
-
         padding-left: 10px !important;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -580,8 +542,6 @@ input[type="range"]:active::-webkit-slider-thumb {
         border-radius: 20px !important;
         background-color: #f2f4f7 !important;
         border: 0px !important;
-
-
     }
 
     .soft-blue-container {
@@ -592,20 +552,15 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .littleText {
     font-style: italic;
-    /* Met le texte en italique */
     font-size: 10px;
-    /* Taille du texte plus petite */
     color: #0f3250;
-    /* Couleur du texte (facultatif) */
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .littleText input {
     width: 100%;
     display: block;
-    /* Pour que l'input reste au-dessus du texte */
     margin-bottom: 5px;
-    /* Un peu d'espace entre l'input et le texte */
     text-transform: capitalize;
 }
 
