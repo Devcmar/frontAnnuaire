@@ -181,7 +181,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Garde 32% pour chaque élément */
     font-weight: 500;
     font-size: 15px;
-    color: #ffffff;
+    color: #0f3250;
 }
 
 .value1 {text-align:left;padding-left:5px}
@@ -199,6 +199,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .departement {
     width: fit-content;
+    color: #0f3250;
 }
 
 .form-control-Cp {
@@ -405,6 +406,8 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Change la couleur du texte au survol */
 }
 
+#annonce {color:#0F3250}
+
 .card {
     padding-left: 40px !important;
     padding-top: 20px;
@@ -528,6 +531,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .checkbox-container {
+    color: #0f3250;
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
@@ -591,7 +595,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Met le texte en italique */
     font-size: 10px;
     /* Taille du texte plus petite */
-    color: #666;
+    color: #0f3250;
     /* Couleur du texte (facultatif) */
     font-family: 'Montserrat';
 }
