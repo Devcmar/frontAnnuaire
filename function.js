@@ -337,6 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const secteurSearchInput = document.querySelector('#secteur + span .select2-search__field');
         const activiteSearchInput = document.querySelector('#activite + span .select2-search__field');
+        const villeSearchInput = document.querySelector('#searchInput + span .select2-search__field');
 
         if (secteurSearchInput) {
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
