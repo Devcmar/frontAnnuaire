@@ -8,13 +8,14 @@ body {
 .title {
     font-family: 'Montserrat', Arial, sans-serif;
     color: #0f3250;
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: 900;
     font-optical-sizing: auto;
     font-style: normal;
     text-align: center;
     line-height: 1;
-    margin: 6vh auto 0;
+    margin: 2vh auto 0;
+    top: 25px;
 }
 
 .container_all {
@@ -38,6 +39,14 @@ body {
 }
 
 .small-container {max-width:520px}
+
+.intro-title {
+    max-width: 900px;
+    padding: 0 20px;
+    text-align: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 2.25em;
+}
 
 .intro-text {
     max-width: 900px;
