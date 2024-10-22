@@ -453,7 +453,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .contact a:hover {
-    color: #ea4b3c;
+    color: #ea4b3c !important;
+    text-decoration: none;
 }
 
 .result {
