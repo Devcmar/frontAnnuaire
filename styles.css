@@ -13,7 +13,7 @@ body {
     text-align: center;
     line-height: 1;
     /* Réduit l'espacement vertical entre les lignes du texte */
-    margin-top: 6vh auto 0;
+    margin: 6vh auto 0;
 }
 
 .container_all {
