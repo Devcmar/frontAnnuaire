@@ -350,6 +350,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.error('Activite search input not found.');
         }
+
+        if (villeSearchInput) {
+            villeSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
+        } else {
+            console.error('Ville search input not found.');
+        }
     }
     setTimeout(appendSearchIcon, 500); // Adjust the timeout as needed
 });
