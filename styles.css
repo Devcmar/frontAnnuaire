@@ -5,8 +5,8 @@ body {
 
 .title {
     font-family: 'Montserrat', Arial, sans-serif;
-    color: #B0D2D9;
-    font-size: 2rem;
+    color: #0f3250;
+    font-size: 3rem;
     font-weight: 900;
     font-optical-sizing: auto;
     font-style: normal;
@@ -476,6 +476,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 .reference-card {
     background-color: #B0D2D9;
     width: fit-content;
+    padding: 0 5px;
     color: white;
     font-family: 'Montserrat';
 }
