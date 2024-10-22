@@ -388,13 +388,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 #annonce {color:#0F3250}
 
 .card {
-    padding-left: 40px !important;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 40px;
+    padding:20px 40px !important;
     margin: 0 auto;
     width: auto;
-    max-width: 50vw;
+    max-width: 550px;
     margin-bottom: 30px;
     border-radius: 40px !important;
     background-color: #f2f4f7 !important;
@@ -546,10 +543,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 @media screen and (max-width: 700px) {
     .card {
         max-width: 90vw;
-        padding-left: 10px !important;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-right: 10px;
+        padding: 30px !important;
         margin: 0 auto;
         margin-bottom: 20px;
         border-radius: 20px !important;
