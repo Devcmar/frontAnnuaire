@@ -1,14 +1,4 @@
-/* function slideOne(name) {
-    var sliderOne = document.getElementById("slider-1"+name);
-    var sliderTwo = document.getElementById("slider-2"+name);
-    var displayValOne = document.getElementById("range1" +name);
-    minGapOne = getMinGapOne(name);
-    if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
-      sliderOne.value = parseInt(sliderTwo.value) - minGapOne;
-    }
-    displayValOne.textContent = sliderOne.value;
-    fillColor(sliderOne, sliderTwo, name);
-} */
+
 
 function slideOne(name) {
   var sliderOne = document.getElementById("slider-1"+name);
@@ -21,23 +11,15 @@ function slideOne(name) {
   }
 
   // Formatage avec séparateur de milliers
-  displayValOne.textContent = formatNumbers(sliderOne.value);
+  if (name == "Effectif"){
+    displayValOne.textContent = formatNumbers(sliderOne.value);
+  } else {
+    displayValOne.textContent = formatNumbersEuros(sliderOne.value);
+  }
   fillColor(sliderOne, sliderTwo, name);
 }
 
-/* function slideTwo(name) {
 
-    var displayValTwo = document.getElementById("range2"+name);
-    var sliderOne = document.getElementById("slider-1"+name);
-    var sliderTwo = document.getElementById("slider-2"+name);
-    minGapOne = getMinGapOne(name);
-
-    if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
-      sliderTwo.value = parseInt(sliderOne.value) + minGapOne;
-    }
-    displayValTwo.textContent = sliderTwo.value;
-    fillColor(sliderOne, sliderTwo, name);
-} */
 
 function slideTwo(name) {
   console.log("---------slideTwo-----------");
@@ -53,7 +35,11 @@ function slideTwo(name) {
   }
 
   // Formatage avec séparateur de milliers
-  displayValTwo.textContent = formatNumbers(sliderTwo.value);
+  if (name == "Effectif"){
+    displayValTwo.textContent = formatNumbers(sliderTwo.value);
+  } else {
+    displayValTwo.textContent = formatNumbersEuros(sliderTwo.value);
+  }
   fillColor(sliderOne, sliderTwo, name);
 }
 
@@ -326,6 +312,10 @@ function createCard(annonce) {
   `;
 }
 
-function formatNumbers(number) {
+function formatNumbersEuros(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+ " €";
+}
+
+function formatNumbers(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
