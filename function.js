@@ -1,4 +1,4 @@
-function slideOne(name) {
+/* function slideOne(name) {
     var sliderOne = document.getElementById("slider-1"+name);
     var sliderTwo = document.getElementById("slider-2"+name);
     var displayValOne = document.getElementById("range1" +name);
@@ -8,9 +8,24 @@ function slideOne(name) {
     }
     displayValOne.textContent = sliderOne.value;
     fillColor(sliderOne, sliderTwo, name);
+} */
+
+function slideOne(name) {
+  var sliderOne = document.getElementById("slider-1"+name);
+  var sliderTwo = document.getElementById("slider-2"+name);
+  var displayValOne = document.getElementById("range1" +name);
+  minGapOne = getMinGapOne(name);
+
+  if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
+      sliderOne.value = parseInt(sliderTwo.value) - minGapOne;
+  }
+
+  // Formatage avec séparateur de milliers
+  displayValOne.textContent = formatNumbers(sliderOne.value);
+  fillColor(sliderOne, sliderTwo, name);
 }
 
-function slideTwo(name) {
+/* function slideTwo(name) {
 
     var displayValTwo = document.getElementById("range2"+name);
     var sliderOne = document.getElementById("slider-1"+name);
@@ -22,6 +37,24 @@ function slideTwo(name) {
     }
     displayValTwo.textContent = sliderTwo.value;
     fillColor(sliderOne, sliderTwo, name);
+} */
+
+function slideTwo(name) {
+  console.log("---------slideTwo-----------");
+  var sliderOne = document.getElementById("slider-1"+name);
+  var sliderTwo = document.getElementById("slider-2"+name);
+  var displayValTwo = document.getElementById("range2"+name);
+  console.log("displayValTwo", displayValTwo);
+  
+  minGapOne = getMinGapOne(name);
+
+  if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
+      sliderTwo.value = parseInt(sliderOne.value) + minGapOne;
+  }
+
+  // Formatage avec séparateur de milliers
+  displayValTwo.textContent = formatNumbers(sliderTwo.value);
+  fillColor(sliderOne, sliderTwo, name);
 }
 
 function fillColor(sliderOne, sliderTwo, name) {
@@ -291,4 +324,8 @@ function createCard(annonce) {
           </div>
       </div>
   `;
+}
+
+function formatNumbers(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+ " €";
 }

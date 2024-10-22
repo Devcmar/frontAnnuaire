@@ -16,8 +16,6 @@ window.onload = function () {
   });
 
 
-
-
   var searchInput = document.getElementById('searchInput');
   searchInput.addEventListener('input',handleInputEvent );
 
