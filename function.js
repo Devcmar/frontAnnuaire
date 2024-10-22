@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const secteurSearchInput = document.querySelector('#secteur + span .select2-search__field');
         const activiteSearchInput = document.querySelector('#activite + span .select2-search__field');
-        const villeSearchInput = document.querySelector('#searchInput + span .select2-search__field');
+        const searchInput = document.getElementById('searchInput');
 
         if (secteurSearchInput) {
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
@@ -351,11 +351,12 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Activite search input not found.');
         }
 
-        if (villeSearchInput) {
-            villeSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
+        if (searchInput) {
+            searchInput.parentNode.insertBefore(searchIconSpan.cloneNode(true), searchInput.nextSibling);
         } else {
-            console.error('Ville search input not found.');
+            console.error('Search input not found.');
         }
     }
-    setTimeout(appendSearchIcon, 500); // Adjust the timeout as needed
+
+    setTimeout(appendSearchIcon, 500);
 });
