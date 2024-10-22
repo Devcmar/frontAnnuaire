@@ -542,6 +542,19 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 @media screen and (max-width: 700px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .intro-title {
+        font-size: 1.75em;
+        line-height: 29px;
+    }
+
+    .intro-text {
+        padding: 20px 10px 0;
+    }
+
     .card {
         max-width: 90vw;
         padding: 30px !important;
