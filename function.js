@@ -159,7 +159,7 @@ checkbox : checkbox ?? null
               const resultDiv = document.getElementById('result');
               resultDiv.innerHTML = "";
               const numberOfOffers = data.length;
-            resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> offres correspondent à votre recherche`;
+            resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> <span class="offers-text">offres correspondent à votre recherche</span>`;
               // Parcourt chaque annonce et génère une carte
               data.forEach(annonce => {
                 
