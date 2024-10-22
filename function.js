@@ -355,10 +355,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const searchInput = document.getElementById("searchInput");
     
-    const searchIcon = document.createElement("span");
-    searchIcon.className = "search-icon";
+    const searchIconCity = document.createElement("span");
+    searchIconCity.className = "search-icon-city";
     
-    searchIcon.innerHTML = `
+    searchIconCity.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256" style="max-width:20px;max-height:20px;">
             <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                 <g transform="scale(8.53333,8.53333)">
@@ -367,5 +367,5 @@ document.addEventListener("DOMContentLoaded", function () {
             </g>
         </svg>`;
     
-    searchInput.parentNode.insertBefore(searchIcon, searchInput.nextSibling);
+    searchInput.parentNode.insertBefore(searchIconCity, searchInput.nextSibling);
 });
