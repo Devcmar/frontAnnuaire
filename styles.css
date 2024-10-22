@@ -43,6 +43,8 @@ body {
 
 .small-container {max-width:520px}
 
+.intro-text {font-family:'Montserrat', Arial, sans-serif}
+
 .criteria-selector-top {
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +56,7 @@ body {
 }
 
 .select2-results {
-    font-family: 'Montserrat' !important;
+    font-family: 'Montserrat', Arial, sans-serif !important;
 }
 
 .round {
@@ -179,10 +181,9 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .value1,
 .value2 {
-    width: 20%;
-    /* Garde 32% pour chaque élément */
+    width: 25%;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 17px;
     color: #0f3250;
 }
 
@@ -197,11 +198,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 .select-achat {
     text-align: left;
     width: 100%;
-}
-
-.departement {
-    width: fit-content;
-    color: #0f3250;
 }
 
 .form-control-Cp {
@@ -222,7 +218,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .round {
     border-radius: 10px;
-    font-family: 'Montserrat' !important;
+    font-family: 'Montserrat', Arial, sans-serif !important;
 }
 
 .effectif,
@@ -271,7 +267,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     border-radius: 4px;
     /* Coins arrondis */
     color: white;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', Arial, sans-serif;
     border-radius: 50px !important;
 }
 
@@ -397,7 +393,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Change le curseur en pointeur pour indiquer que c'est cliquable */
     border-bottom: 1px solid #ddd;
     /* Ajoute une bordure entre les éléments */
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -444,7 +440,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     margin-top: 10px;
     color: #0F3250;
     text-align: center;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .contact a {
@@ -465,7 +461,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 .result {
     font-size: 18px;
     margin: 20px 0;
-    font-family: 'Montserrat' !important;
+    font-family: 'Montserrat', Arial, sans-serif !important;
 }
 
 .result .number {
@@ -482,7 +478,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     width: fit-content;
     padding: 0 5px;
     color: white;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .titreAnnonce-card {
@@ -497,6 +493,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .departement {
     width: fit-content;
+    padding-left: 15px !important;
     font-size: large;
     font-weight: bold;
     color: #0F3250;
@@ -511,7 +508,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .div-blue-writing {
     line-height: 20px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .margin-bottom {
@@ -600,7 +597,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     /* Taille du texte plus petite */
     color: #0f3250;
     /* Couleur du texte (facultatif) */
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .littleText input {
