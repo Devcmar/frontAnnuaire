@@ -333,8 +333,8 @@ searchIconSpan.innerHTML = `
     </svg>
 `;
 
-const secteurSelect = document.getElementById('secteur');
-const activiteSelect = document.getElementById('activite');
+const secteurSearchInput = document.querySelector('#secteur + span .select2-search--inline');
+const activiteSearchInput = document.querySelector('#activite + span .select2-search--inline');
 
-secteurSelect.parentNode.insertBefore(searchIconSpan, secteurSelect.nextSibling);
-activiteSelect.parentNode.insertBefore(searchIconSpan.cloneNode(true), activiteSelect.nextSibling);
+secteurSearchInput.appendChild(searchIconSpan.cloneNode(true));
+activiteSearchInput.appendChild(searchIconSpan.cloneNode(true));
