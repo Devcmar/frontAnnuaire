@@ -336,7 +336,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .input-bar {
-    padding-left: 10px;
+    padding-left: 15px;
     background-color: #fff;
     border: #fff;
     outline: none;
