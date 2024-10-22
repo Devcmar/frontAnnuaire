@@ -320,10 +320,10 @@ function formatNumbers(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-function addSearchIconToSelect2(select2Id) {
-  var select2SearchInput = document.querySelector(`#${select2Id} + .select2-container .select2-search__field`);
+function addSearchIconToMainSelect2(select2Id) {
+  var select2Container = document.querySelector(`#${select2Id} + .select2-container .select2-selection`);
 
-  if (select2SearchInput && !select2SearchInput.parentNode.querySelector('.search-icon')) {
+  if (select2Container && !select2Container.parentNode.querySelector('.search-icon')) {
     
     var searchIconSpan = document.createElement('span');
     searchIconSpan.classList.add('search-icon');
@@ -336,23 +336,19 @@ function addSearchIconToSelect2(select2Id) {
         </g>
       </svg>`;
     
-    select2SearchInput.parentNode.insertBefore(searchIconSpan, select2SearchInput.nextSibling);
+    select2Container.appendChild(searchIconSpan);
   }
 }
 
 $('#secteur').select2({
   placeholder: 'Sélectionner un secteur',
   allowClear: true
-}).on('select2:open', function() {
-  addSearchIconToSelect2('secteur');
 });
 
 $('#activite').select2({
   placeholder: 'Sélectionner une activité',
   allowClear: true
-}).on('select2:open', function() {
-  addSearchIconToSelect2('activite');
 });
 
-addSearchIconToSelect2('secteur');
-addSearchIconToSelect2('activite');
+addSearchIconToMainSelect2('secteur');
+addSearchIconToMainSelect2('activite');
