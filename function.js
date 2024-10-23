@@ -399,7 +399,7 @@ function formatNumbers(number) {
         appendSearchIcon();
     });
 
-    setTimeout(appendSearchIcon, 500);*/
+    setTimeout(appendSearchIcon, 500);
 
     const searchInput = document.getElementById("searchInput");
     const annonceInput = document.getElementById("annonce");
@@ -448,4 +448,4 @@ function formatNumbers(number) {
                 toggleIconVisibility(input, icon);
             });
         }
-    });
+    });*/
