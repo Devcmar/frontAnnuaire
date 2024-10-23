@@ -407,16 +407,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectInput) {
             const icon = selectInput.parentNode.nextElementSibling;
 
-            $(document).on("select2:select", function (e) {
-                if (e.target.id === selectId) {
-                    toggleIconVisibility(selectInput, icon);
-                }
+            selectInput.addEventListener("input", function () {
+                toggleIconVisibility(selectInput, icon);
             });
 
-            $(document).on("select2:unselect", function (e) {
-                if (e.target.id === selectId) {
-                    toggleIconVisibility(selectInput, icon);
-                }
+            const parentSelect = document.querySelector(`#${selectId}`);
+            parentSelect.addEventListener("change", function (e) {
+                toggleIconVisibility(selectInput, icon);
             });
         }
     });
