@@ -382,6 +382,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .suggestions-container {
+    top: 35px;
     border: 1px solid #91b6c0;
     position: absolute;
     background-color: white;
@@ -611,6 +612,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     width: 100%;
     display: block;
     margin-bottom: 5px;
+    text-transform: capitalize;
 }
 
 .littleText #text {
