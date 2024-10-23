@@ -335,11 +335,9 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
         `;
     
-        // Select the inputs for secteur and activite
         const secteurSearchInput = document.querySelector('#secteur + span .select2-search__field');
         const activiteSearchInput = document.querySelector('#activite + span .select2-search__field');
     
-        // Append search icon to each input if found
         if (secteurSearchInput) {
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
@@ -353,26 +351,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     
         function toggleIconVisibilityOne(input, icon) {
-            console.log(`Input value: "${input.value}"`); // Debugging log
-            if (input.value.trim() !== "") {
-                icon.style.display = "none";  // Hide icon when input is not empty
+            if (input.value.trim() === "") {
+                icon.style.display = "inline-block";
             } else {
-                icon.style.display = "inline-block";  // Show icon when input is empty
+                icon.style.display = "none";
             }
         }
     
         [secteurSearchInput, activiteSearchInput].forEach(input => {
             if (input) {
-                // Adjust icon selection to ensure it correctly references the appended icon
                 const icon = Array.from(input.parentNode.children).find(child => child.classList.contains('search-icon'));
+                
+                input.addEventListener("change", function () {
+                    toggleIconVisibilityOne(input, icon);
+                });
+    
                 input.addEventListener("input", function () {
                     toggleIconVisibilityOne(input, icon);
                 });
+    
+                toggleIconVisibilityOne(input, icon);
             }
         });
-    }
+    }    
 
-    // Delay to ensure elements are loaded
     setTimeout(appendSearchIcon, 500);
 
     const searchInput = document.getElementById("searchInput");
@@ -404,23 +406,20 @@ document.addEventListener("DOMContentLoaded", function () {
         </svg>
     `;
 
-    // Insert the icons into the DOM
     searchInput?.parentNode?.insertBefore(searchIconCity, searchInput.nextSibling);
     annonceInput?.parentNode?.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
 
-    // Function to toggle the visibility of the icons
     function toggleIconVisibility(input, icon) {
         if (input.value.trim() !== "") {
-            icon.style.display = "none";  // Hide icon when input is not empty
+            icon.style.display = "none";
         } else {
-            icon.style.display = "inline-block";  // Show icon when input is empty
+            icon.style.display = "inline-block";
         }
     }
 
-    // Add event listeners for regular search inputs
     [searchInput, annonceInput].forEach(input => {
         if (input) {
-            const icon = input.nextElementSibling; // This targets the span containing the icon
+            const icon = input.nextElementSibling;
             input.addEventListener("input", function () {
                 toggleIconVisibility(input, icon);
             });
