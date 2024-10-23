@@ -354,6 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(appendSearchIcon, 500);
 
     const searchInput = document.getElementById("searchInput");
+    const annonceInput = document.getElementById("annonce");
     
     const searchIconCity = document.createElement("span");
     searchIconCity.className = "search-icon-city";
@@ -368,4 +369,5 @@ document.addEventListener("DOMContentLoaded", function () {
         </svg>`;
     
     searchInput.parentNode.insertBefore(searchIconCity, searchInput.nextSibling);
+    annonceInput.parentNode.insertBefore(searchIconCity, annonceInput.nextSibling);
 });
