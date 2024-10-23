@@ -320,7 +320,7 @@ function formatNumbers(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
     function appendSearchIcon() {
         const searchIconSpan = document.createElement('span');
         searchIconSpan.classList.add('search-icon');
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
         appendSearchIcon();
     });
 
-    setTimeout(appendSearchIcon, 500);
+    setTimeout(appendSearchIcon, 500);*/
 
     const searchInput = document.getElementById("searchInput");
     const annonceInput = document.getElementById("annonce");
