@@ -421,7 +421,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // For select2 selections
             const parentSelect = document.querySelector(`#${selectId}`);
-            parentSelect.addEventListener("change", function (e) {
+            parentSelect.addEventListener("change", function () {
                 toggleIconVisibility(selectInput, icon);
             });
 
