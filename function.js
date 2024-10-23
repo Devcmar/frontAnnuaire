@@ -320,7 +320,7 @@ function formatNumbers(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-/*document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     function appendSearchIcon() {
         const searchIconSpan = document.createElement('span');
         searchIconSpan.classList.add('search-icon');
@@ -354,7 +354,7 @@ function formatNumbers(number) {
             console.error('Activite select not found.');
         }
     
-        function toggleIconVisibilityOne(select, icon) {
+        /*function toggleIconVisibilityOne(select, icon) {
             if (!icon) {
                 console.error("Icon not found for select:", select);
                 return; // Exit if the icon is not found
@@ -389,7 +389,7 @@ function formatNumbers(number) {
                 // Initial state
                 toggleIconVisibilityOne(select, icon);
             }
-        });
+        });*/
     }
     
     // Call the function after Select2 initialization
@@ -448,4 +448,5 @@ function formatNumbers(number) {
                 toggleIconVisibility(input, icon);
             });
         }
-    });*/
+    });
+});
