@@ -335,45 +335,51 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
         `;
     
-        const secteurSearchInput = document.querySelector('#secteur + span .select2-search__field');
-        const activiteSearchInput = document.querySelector('#activite + span .select2-search__field');
+        const secteurSelect = document.querySelector('#secteur');
+        const activiteSelect = document.querySelector('#activite');
     
-        if (secteurSearchInput) {
+        if (secteurSelect) {
+            const secteurSearchInput = secteurSelect.nextElementSibling.querySelector('.select2-search__field');
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
-            console.error('Secteur search input not found.');
+            console.error('Secteur select not found.');
         }
     
-        if (activiteSearchInput) {
+        if (activiteSelect) {
+            const activiteSearchInput = activiteSelect.nextElementSibling.querySelector('.select2-search__field');
             activiteSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
-            console.error('Activite search input not found.');
+            console.error('Activite select not found.');
         }
     
-        function toggleIconVisibilityOne(input, icon) {
-            if (input.value.trim() === "") {
+        function toggleIconVisibilityOne(select, icon) {
+            const selectedOptions = Array.from(select.selectedOptions);
+            if (selectedOptions.length === 0) {
                 icon.style.display = "inline-block";
             } else {
                 icon.style.display = "none";
             }
         }
     
-        [secteurSearchInput, activiteSearchInput].forEach(input => {
-            if (input) {
-                const icon = Array.from(input.parentNode.children).find(child => child.classList.contains('search-icon'));
+        [secteurSelect, activiteSelect].forEach(select => {
+            if (select) {
+                const icon = Array.from(select.nextElementSibling.children).find(child => child.classList.contains('search-icon'));
                 
-                input.addEventListener("change", function () {
-                    toggleIconVisibilityOne(input, icon);
+                select.addEventListener("change", function () {
+                    toggleIconVisibilityOne(select, icon);
                 });
     
-                input.addEventListener("input", function () {
-                    toggleIconVisibilityOne(input, icon);
-                });
-    
-                toggleIconVisibilityOne(input, icon);
+                toggleIconVisibilityOne(select, icon);
             }
         });
-    }    
+    }
+    
+    $(document).ready(function() {
+        $('#secteur').select2();
+        $('#activite').select2();
+        appendSearchIcon();
+    });
+     
 
     setTimeout(appendSearchIcon, 500);
 
