@@ -382,8 +382,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </svg>
     `;
 
-    searchInput.parentNode.insertBefore(searchIconCity, searchInput.nextSibling);
-    annonceInput.parentNode.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
+    searchInput?.parentNode?.insertBefore(searchIconCity, searchInput.nextSibling);
+    annonceInput?.parentNode?.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
 
     function toggleIconVisibility(input, icon) {
         if (input.value.trim() !== "") {
@@ -394,17 +394,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     [searchInput, annonceInput].forEach(input => {
-        const icon = input.nextElementSibling;
-        input.addEventListener("input", function () {
-            toggleIconVisibility(input, icon);
-        });
+        if (input) {
+            const icon = input.nextElementSibling;
+            input.addEventListener("input", function () {
+                toggleIconVisibility(input, icon);
+            });
+        }
     });
 
-    const select2Fields = ['#secteur', '#activite'];
-    select2Fields.forEach(selector => {
-        const selectInput = document.querySelector(`${selector} + span .select2-search__field`);
-        const icon = selectInput.parentNode.querySelector('.search-icon');
+    ['secteur', 'activite'].forEach(function (selectId) {
+        const selectInput = document.querySelector(`#${selectId} + span .select2-search__field`);
         if (selectInput) {
+            const icon = selectInput.parentNode.nextElementSibling;
             selectInput.addEventListener("input", function () {
                 toggleIconVisibility(selectInput, icon);
             });
