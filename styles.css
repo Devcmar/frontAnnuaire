@@ -285,7 +285,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .select2-container {
-    width: 300px;
+    width: 300px !important;
 }
 
 .select2-container.active {
