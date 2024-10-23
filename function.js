@@ -335,11 +335,9 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
         `;
     
-        // Select the inputs for secteur and activite
         const secteurSelect = document.querySelector('#secteur');
         const activiteSelect = document.querySelector('#activite');
     
-        // Append search icon to each input if found
         if (secteurSelect) {
             const secteurSearchInput = secteurSelect.nextElementSibling.querySelector('.select2-search__field');
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
@@ -354,50 +352,44 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Activite select not found.');
         }
     
-        /*function toggleIconVisibilityOne(select, icon) {
+        function toggleIconVisibilityOne(select, icon) {
             if (!icon) {
                 console.error("Icon not found for select:", select);
-                return; // Exit if the icon is not found
+                return;
             }
     
-            // Get selected options
             const selectedOptions = Array.from(select.selectedOptions);
-            // Show icon if no options are selected
             if (selectedOptions.length === 0) {
-                icon.style.display = "inline-block";  // Show icon when no options are selected
+                icon.style.display = "inline-block";
             } else {
-                icon.style.display = "none";  // Hide icon when at least one option is selected
+                icon.style.display = "none";
             }
         }
     
-        // Initialize visibility for each select
         [secteurSelect, activiteSelect].forEach(select => {
             if (select) {
-                const icon = Array.from(select.nextElementSibling.children).find(child => child.classList.contains('search-icon'));
+                const icon = select.nextElementSibling.querySelector('.search-icon');
     
-                // Check if icon is found
                 if (!icon) {
                     console.error("Search icon not found for select:", select);
-                    return; // Exit if the icon is not found
+                    return;
                 }
     
-                // Listen for the 'change' event for dropdown selections
                 select.addEventListener("change", function () {
                     toggleIconVisibilityOne(select, icon);
                 });
     
-                // Initial state
                 toggleIconVisibilityOne(select, icon);
             }
-        });*/
+        });
     }
     
-    // Call the function after Select2 initialization
     $(document).ready(function() {
         $('#secteur').select2();
         $('#activite').select2();
         appendSearchIcon();
     });
+    
 
     setTimeout(appendSearchIcon, 500);
 
