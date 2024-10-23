@@ -400,11 +400,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add event listeners for regular search inputs
     [searchInput, annonceInput].forEach(input => {
-        if (input) {
-            const icon = input.nextElementSibling; // This targets the span containing the icon
-            input.addEventListener("input", function () {
-                toggleIconVisibility(input, icon);
-            });
+        if (input.value.trim() !== "") {
+            icon.style.display = "none";  // Hide icon when input is not empty
+        } else {
+            icon.style.display = "inline-block";  // Show icon when input is empty
         }
     });
 
@@ -421,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // For select2 selections
             const parentSelect = document.querySelector(`#${selectId}`);
-            parentSelect.addEventListener("change", function () {
+            parentSelect.addEventListener("change", function (e) {
                 toggleIconVisibility(selectInput, icon);
             });
 
@@ -432,3 +431,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
