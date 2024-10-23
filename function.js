@@ -406,8 +406,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectInput = document.querySelector(`#${selectId} + span .select2-search__field`);
         if (selectInput) {
             const icon = selectInput.parentNode.nextElementSibling;
-            selectInput.addEventListener("input", function () {
-                toggleIconVisibility(selectInput, icon);
+
+            $(document).on("select2:select", function (e) {
+                if (e.target.id === selectId) {
+                    toggleIconVisibility(selectInput, icon);
+                }
+            });
+
+            $(document).on("select2:unselect", function (e) {
+                if (e.target.id === selectId) {
+                    toggleIconVisibility(selectInput, icon);
+                }
             });
         }
     });
