@@ -67,6 +67,10 @@ body {
     margin-bottom: 20px;
 }
 
+.criteria-selector-top > div {
+    width: 43%;
+}
+
 .select2-results {
     font-family: 'Montserrat', Arial, sans-serif !important;
 }
@@ -278,6 +282,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     display: flex;
     gap: 20px;
     max-width: 60vw;
+}
+
+.select2-container {
+    width: 300px;
 }
 
 .select2-container.active {
