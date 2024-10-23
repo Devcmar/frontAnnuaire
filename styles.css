@@ -215,7 +215,20 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .search-ref {
     width: fit-content;
+    position: relative;
+    display: inline-block;
     margin-bottom: 15px;
+}
+
+.search-icon-announce {
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 25%;
+    transform: translateY(-25%);
+    pointer-events: none;
 }
 
 .search-button {
