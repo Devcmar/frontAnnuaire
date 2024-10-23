@@ -335,9 +335,11 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
         `;
 
+        // Select the inputs for secteur and activite
         const secteurSearchInput = document.querySelector('#secteur + span .select2-search__field');
         const activiteSearchInput = document.querySelector('#activite + span .select2-search__field');
 
+        // Append search icon to each input if found
         if (secteurSearchInput) {
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
@@ -351,6 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Delay to ensure elements are loaded
     setTimeout(appendSearchIcon, 500);
 
     const searchInput = document.getElementById("searchInput");
@@ -382,9 +385,11 @@ document.addEventListener("DOMContentLoaded", function () {
         </svg>
     `;
 
+    // Insert the icons into the DOM
     searchInput?.parentNode?.insertBefore(searchIconCity, searchInput.nextSibling);
     annonceInput?.parentNode?.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
 
+    // Function to toggle the visibility of the icons
     function toggleIconVisibility(input, icon) {
         if (input.value.trim() !== "") {
             icon.style.display = "none";
@@ -393,26 +398,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Add event listeners for search inputs
     [searchInput, annonceInput].forEach(input => {
         if (input) {
-            const icon = input.nextElementSibling;
+            const icon = input.nextElementSibling; // This targets the span containing the icon
             input.addEventListener("input", function () {
                 toggleIconVisibility(input, icon);
             });
         }
     });
 
+    // Handle select2 fields with select2-specific events
     ['secteur', 'activite'].forEach(function (selectId) {
         const selectInput = document.querySelector(`#${selectId} + span .select2-search__field`);
         if (selectInput) {
-            const icon = selectInput.parentNode.nextElementSibling;
+            const icon = selectInput.parentNode.nextElementSibling; // Get the corresponding icon span
 
             selectInput.addEventListener("input", function () {
                 toggleIconVisibility(selectInput, icon);
             });
 
+            // For select2 selections
             const parentSelect = document.querySelector(`#${selectId}`);
             parentSelect.addEventListener("change", function (e) {
+                toggleIconVisibility(selectInput, icon);
+            });
+
+            // Handle select2 close event to show the icon when the select box is closed
+            parentSelect.addEventListener("select2:close", function () {
                 toggleIconVisibility(selectInput, icon);
             });
         }
