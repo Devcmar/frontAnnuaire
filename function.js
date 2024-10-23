@@ -352,11 +352,19 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Activite search input not found.');
         }
 
+        function toggleIconVisibilityOne(input, icon) {
+            if (input.value.trim() !== "") {
+                icon.style.display = "none";  // Hide icon when input is not empty
+            } else {
+                icon.style.display = "inline-block";  // Show icon when input is empty
+            }
+        }
+
         [secteurSearchInput, activiteSearchInput].forEach(input => {
             if (input) {
                 const icon = input.nextElementSibling; // This targets the span containing the icon
                 input.addEventListener("input", function () {
-                    toggleIconVisibility(input, icon);
+                    toggleIconVisibilityOne(input, icon);
                 });
             }
         });
@@ -397,6 +405,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Insert the icons into the DOM
     searchInput?.parentNode?.insertBefore(searchIconCity, searchInput.nextSibling);
     annonceInput?.parentNode?.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
+
+    // Function to toggle the visibility of the icons
+    function toggleIconVisibility(input, icon) {
+        if (input.value.trim() !== "") {
+            icon.style.display = "none";  // Hide icon when input is not empty
+        } else {
+            icon.style.display = "inline-block";  // Show icon when input is empty
+        }
+    }
 
     // Add event listeners for regular search inputs
     [searchInput, annonceInput].forEach(input => {
