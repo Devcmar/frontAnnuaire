@@ -355,13 +355,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const searchInput = document.getElementById("searchInput");
     const annonceInput = document.getElementById("annonce");
-    
+
     const searchIconCity = document.createElement("span");
     searchIconCity.className = "search-icon-city";
-    
+
     const searchIconAnnounce = document.createElement("span");
     searchIconAnnounce.className = "search-icon-announce";
-    
+
     searchIconCity.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 256 256" style="max-width:20px;max-height:20px;">
             <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </g>
         </svg>
     `;
-    
+
     searchIconAnnounce.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 256 256" style="max-width:20px;max-height:20px;">
             <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
@@ -381,9 +381,33 @@ document.addEventListener("DOMContentLoaded", function () {
             </g>
         </svg>
     `;
-    
+
     searchInput.parentNode.insertBefore(searchIconCity, searchInput.nextSibling);
-    
     annonceInput.parentNode.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
 
+    function toggleIconVisibility(input, icon) {
+        if (input.value.trim() !== "") {
+            icon.style.display = "none";
+        } else {
+            icon.style.display = "inline-block";
+        }
+    }
+
+    [searchInput, annonceInput].forEach(input => {
+        const icon = input.nextElementSibling;
+        input.addEventListener("input", function () {
+            toggleIconVisibility(input, icon);
+        });
+    });
+
+    const select2Fields = ['#secteur', '#activite'];
+    select2Fields.forEach(selector => {
+        const selectInput = document.querySelector(`${selector} + span .select2-search__field`);
+        const icon = selectInput.parentNode.querySelector('.search-icon');
+        if (selectInput) {
+            selectInput.addEventListener("input", function () {
+                toggleIconVisibility(selectInput, icon);
+            });
+        }
+    });
 });
