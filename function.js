@@ -449,4 +449,3 @@ function formatNumbers(number) {
             });
         }
     });
-});
