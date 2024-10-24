@@ -178,6 +178,7 @@ function fetchActivite( ){
       .then(data => {
         // Séparer chaque ligne du fichier CSV
         const rows = data.split('\n');
+        rows.sort();
         
         // Récupérer la liste déroulante <select>
         const selectElement = document.querySelector('.form-select.activite');
