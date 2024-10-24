@@ -293,10 +293,6 @@ input[type="range"]:active::-webkit-slider-thumb {
     opacity: 1;
 }
 
-.select2-container--default .select2-search--inline .select2-search__field {
-    width: 100% !important;
-}
-
 .select2-container--default .select2-selection--multiple {
     padding: 2px 0 0 10px !important;
     background-color: white;
@@ -313,6 +309,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     color: white;
     white-space: normal;
     overflow: visible;
+    padding: 5px;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
@@ -321,10 +318,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .select2-container--default .select2-selection--multiple .select2-selection__clear {
     color: black;
-}
-
-.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
-    width: 100%;
 }
 
 .form-select.round.activite {
