@@ -440,4 +440,14 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+
+    const selectElement = document.getElementById('departement');
+
+    selectElement.addEventListener('change', function() {
+      if (selectElement.value !== "") {
+        selectElement.classList.add('no-bg');
+      } else {
+        selectElement.classList.remove('no-bg');
+      }
+    });
 });
