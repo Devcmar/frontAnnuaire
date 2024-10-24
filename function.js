@@ -157,7 +157,7 @@ checkbox : checkbox ?? null
               const resultDiv = document.getElementById('result');
               resultDiv.innerHTML = "";
               const numberOfOffers = data.length;
-            resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> offres correspondent à votre recherche`;
+            resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> <span class="offers-text">offres correspondent à votre recherche</span>`;
               // Parcourt chaque annonce et génère une carte
               data.forEach(annonce => {
                 
@@ -317,3 +317,135 @@ function formatNumbersEuros(number) {
 function formatNumbers(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    function appendSearchIcon() {
+        const searchIconSpan = document.createElement('span');
+        searchIconSpan.classList.add('search-icon');
+    
+        searchIconSpan.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 256 256" style="max-width:20px;max-height:20px;transform: translateX(-35px);">
+                <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <g transform="scale(8.53333,8.53333)">
+                        <path d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z"></path>
+                    </g>
+                </g>
+            </svg>
+        `;
+    
+        const secteurSelect = document.querySelector('#secteur');
+        const activiteSelect = document.querySelector('#activite');
+    
+        if (secteurSelect) {
+            const secteurSearchInput = secteurSelect.nextElementSibling.querySelector('.select2-search__field');
+            secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
+        } else {
+            console.error('Secteur select not found.');
+        }
+    
+        if (activiteSelect) {
+            const activiteSearchInput = activiteSelect.nextElementSibling.querySelector('.select2-search__field');
+            activiteSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
+        } else {
+            console.error('Activite select not found.');
+        }
+    
+        function toggleIconVisibilityOne(select, icon) {
+            if (!icon) {
+                console.error("Icon not found for select:", select);
+                return;
+            }
+    
+            const selectedOptions = Array.from(select.selectedOptions);
+            if (selectedOptions.length === 0) {
+                icon.style.display = "inline-block";
+            } else {
+                icon.style.display = "none";
+            }
+        }
+    
+        [secteurSelect, activiteSelect].forEach(select => {
+            if (select) {
+                const icon = select.nextElementSibling.querySelector('.search-icon');
+    
+                if (!icon) {
+                    console.error("Search icon not found for select:", select);
+                    return;
+                }
+    
+                select.addEventListener("change", function () {
+                    toggleIconVisibilityOne(select, icon);
+                });
+    
+                toggleIconVisibilityOne(select, icon);
+            }
+        });
+    }
+    
+    $(document).ready(function() {
+        $('#secteur').select2();
+        $('#activite').select2();
+        appendSearchIcon();
+    });
+    
+    setTimeout(appendSearchIcon, 500);
+
+    const searchInput = document.getElementById("searchInput");
+    const annonceInput = document.getElementById("annonce");
+
+    const searchIconCity = document.createElement("span");
+    searchIconCity.className = "search-icon-city";
+
+    const searchIconAnnounce = document.createElement("span");
+    searchIconAnnounce.className = "search-icon-announce";
+
+    searchIconCity.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 256 256" style="max-width:20px;max-height:20px;">
+            <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+                <g transform="scale(8.53333,8.53333)">
+                    <path d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z"></path>
+                </g>
+            </g>
+        </svg>
+    `;
+
+    searchIconAnnounce.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 256 256" style="max-width:20px;max-height:20px;">
+            <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+                <g transform="scale(8.53333,8.53333)">
+                    <path d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z"></path>
+                </g>
+            </g>
+        </svg>
+    `;
+
+    searchInput?.parentNode?.insertBefore(searchIconCity, searchInput.nextSibling);
+    annonceInput?.parentNode?.insertBefore(searchIconAnnounce, annonceInput.nextSibling);
+
+    function toggleIconVisibility(input, icon) {
+        if (input.value.trim() !== "") {
+            icon.style.display = "none";
+        } else {
+            icon.style.display = "inline-block";
+        }
+    }
+
+    [searchInput, annonceInput].forEach(input => {
+        if (input) {
+            const icon = input.nextElementSibling;
+            input.addEventListener("input", function () {
+                toggleIconVisibility(input, icon);
+            });
+        }
+    });
+
+    const selectElement = document.getElementById('departement');
+
+    selectElement.addEventListener('change', function() {
+      if (selectElement.value !== "") {
+        selectElement.classList.add('no-bg');
+      } else {
+        selectElement.classList.remove('no-bg');
+      }
+    });
+});
