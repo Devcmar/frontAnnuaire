@@ -163,6 +163,8 @@ checkbox : checkbox ?? null
                 
                   container.innerHTML += createCard(annonce);
               });
+
+              resultDiv.scrollIntoView({ behavior: 'smooth' });
           })
           .catch(error => {
               console.error('Erreur lors de la récupération des données:', error);
