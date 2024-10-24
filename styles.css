@@ -72,6 +72,7 @@ body {
 }
 
 .select2-results {
+    scrollbar-width: thin;
     font-family: 'Montserrat', Arial, sans-serif !important;
 }
 
@@ -402,6 +403,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     border-radius: 5px;
     padding: 5px;
     text-transform: capitalize;
+    scrollbar-width: thin;
 }
 
 /* Styles pour chaque élément de suggestion */
