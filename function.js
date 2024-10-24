@@ -344,10 +344,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Toggle the visibility of the icon based on the input/select element's state
     function toggleIconVisibility(element, icon) {
         if (element.tagName === "SELECT") {
-            // For selects, check if any option other than the default is selected
+            // Check if a non-placeholder option is selected (i.e., value is not empty or default)
             const selectedValue = element.value;
-            // Assuming an empty string or "default" as placeholder value (customize as needed)
-            icon.style.display = (selectedValue === "" || selectedValue === "default") ? "inline-block" : "none";
+            const isPlaceholderSelected = selectedValue === "" || selectedValue === "default";  // Customize "default" if necessary
+            icon.style.display = isPlaceholderSelected ? "inline-block" : "none";
         } else {
             // For inputs, check if the input is empty
             icon.style.display = element.value.trim() === "" ? "inline-block" : "none";
