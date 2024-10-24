@@ -513,6 +513,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     background-position: right 1rem center;
 }
 
+.no-bg {
+    background-image: none !important;
+}
+
 .blue-writing {
     color: #0f3250;
     font-size: large;
