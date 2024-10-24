@@ -29,6 +29,7 @@ body {
 }
 
 .soft-blue-container {
+    width: 100%;
     background-color: #B0D2D9;
     padding: 20px 10px 40px;
     display: flex;
