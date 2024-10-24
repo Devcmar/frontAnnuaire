@@ -321,8 +321,8 @@ function formatNumbers(number) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const secteurSelect = document.getElementById("secteur");
-    const activiteSelect = document.getElementById("activite");
+    const secteurSelect = $('#secteur'); // Use jQuery selector for Select2
+    const activiteSelect = $('#activite');
     const searchInput = document.getElementById("searchInput");
     const annonceInput = document.getElementById("annonce");
 
@@ -341,30 +341,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return icon;
     };
 
-    // Toggle the visibility of the icon based on the input/select element's state
-    function toggleIconVisibility(element, icon) {
-        if (element.tagName === "SELECT") {
-            // Check if a non-placeholder option is selected (i.e., value is not empty or default)
-            const selectedValue = element.value;
-            const isPlaceholderSelected = selectedValue === "" || selectedValue === "default";  // Customize "default" if necessary
-            icon.style.display = isPlaceholderSelected ? "inline-block" : "none";
-        } else {
-            // For inputs, check if the input is empty
-            icon.style.display = element.value.trim() === "" ? "inline-block" : "none";
-        }
+    // Toggle the visibility of the icon based on the Select2 state
+    function toggleIconVisibility(select2Instance, icon) {
+        const selectedValues = select2Instance.val();
+        const hasSelection = selectedValues && selectedValues.length > 0;
+        icon.style.display = hasSelection ? "none" : "inline-block";
     }
 
-    // Handle select elements
-    function setupSelect(selectElement) {
-        if (selectElement) {
-            const searchIcon = createSearchIcon();
-            selectElement.parentNode.insertBefore(searchIcon, selectElement.nextSibling);
+    // Handle Select2 elements
+    function setupSelect2(select2Element) {
+        const searchIcon = createSearchIcon();
+        const parentElement = select2Element.next('.select2-container').find('.select2-search--inline');
+        
+        // Append the icon inside the Select2 container
+        parentElement.append(searchIcon);
 
-            selectElement.addEventListener("change", function () {
-                toggleIconVisibility(selectElement, searchIcon);
-            });
-            toggleIconVisibility(selectElement, searchIcon); // Initial state
-        }
+        select2Element.on('change', function () {
+            toggleIconVisibility(select2Element, searchIcon);
+        });
+
+        // Set the initial icon visibility based on pre-selected values
+        toggleIconVisibility(select2Element, searchIcon);
     }
 
     // Handle input elements
@@ -374,15 +371,19 @@ document.addEventListener("DOMContentLoaded", function () {
             inputElement.parentNode.insertBefore(searchIcon, inputElement.nextSibling);
 
             inputElement.addEventListener("input", function () {
-                toggleIconVisibility(inputElement, searchIcon);
+                searchIcon.style.display = inputElement.value.trim() === "" ? "inline-block" : "none";
             });
-            toggleIconVisibility(inputElement, searchIcon); // Initial state
+
+            searchIcon.style.display = inputElement.value.trim() === "" ? "inline-block" : "none"; // Initial state
         }
     }
 
-    // Setup the select and input elements
-    setupSelect(secteurSelect);
-    setupSelect(activiteSelect);
+    // Initialize Select2 and bind events
+    secteurSelect.select2();  // Initialize Select2 if not already done
+    activiteSelect.select2();  // Initialize Select2 if not already done
+
+    setupSelect2(secteurSelect);
+    setupSelect2(activiteSelect);
     setupInput(searchInput);
     setupInput(annonceInput);
 });
