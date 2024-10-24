@@ -350,11 +350,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle Select2 elements
     function setupSelect2(select2Element) {
+        // Initialize Select2 if not already done
+        select2Element.select2(); 
+
         const searchIcon = createSearchIcon();
-        const parentElement = select2Element.next('.select2-container').find('.select2-search--inline');
-        
-        // Append the icon inside the Select2 container
-        parentElement.append(searchIcon);
+        const select2Container = select2Element.next('.select2-container'); 
+
+        // Append the icon to the select2 container
+        select2Container.find('.select2-selection').append(searchIcon); 
 
         select2Element.on('change', function () {
             toggleIconVisibility(select2Element, searchIcon);
@@ -379,11 +382,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize Select2 and bind events
-    secteurSelect.select2();  // Initialize Select2 if not already done
-    activiteSelect.select2();  // Initialize Select2 if not already done
-
     setupSelect2(secteurSelect);
     setupSelect2(activiteSelect);
     setupInput(searchInput);
     setupInput(annonceInput);
 });
+
+
