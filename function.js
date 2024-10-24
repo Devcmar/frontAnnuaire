@@ -19,8 +19,6 @@ function slideOne(name) {
   fillColor(sliderOne, sliderTwo, name);
 }
 
-
-
 function slideTwo(name) {
   console.log("---------slideTwo-----------");
   var sliderOne = document.getElementById("slider-1"+name);
