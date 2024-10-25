@@ -66,6 +66,7 @@ function getMinGapOne(name){
 function fetchData(params) {
 
   document.querySelector('.loader-container').style.display = 'flex';
+  window.scrollTo(0, document.body.scrollHeight);
 
 var secteurSelect = document.getElementById('secteur');
 var secteur = Array.from(secteurSelect.selectedOptions).map(option => option.value);
