@@ -608,8 +608,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 @media screen and (max-width: 992px) {
     .title {margin:2vh auto 0}
     .logo-partners {display:none}
-    .logo-partners-mobile {padding:40px 40px 0;display:block;text-align:center}
-    .logo-partners-mobile img {width:100%;max-width:700px}
+    .logo-partners-mobile {padding:40px 20px 0;display:block;text-align:center}
+    .logo-partners-mobile img {width:100%;max-width:400px}
 }
 
 @media screen and (max-width: 767px) {
