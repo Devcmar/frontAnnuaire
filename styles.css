@@ -607,8 +607,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 @media screen and (max-width: 992px) {
     .logo-partners {display:none}
-    .logo-partners-mobile {padding:0 40px;display:block}
-    .logo-partners-mobile img {width:100%;max-width:500px}
+    .logo-partners-mobile {padding:0 20px;display:block}
+    .logo-partners-mobile img {width:100%;max-width:700px}
 }
 
 @media screen and (max-width: 767px) {
