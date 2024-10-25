@@ -606,9 +606,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 @media screen and (max-width: 992px) {
+    .title {margin:2vh auto 0}
     .logo-partners {display:none}
-    .logo-partners-mobile {display:block}
-    .logo-partners-mobile img {max-width:100%}
+    .logo-partners-mobile {padding:0 40px;display:block}
+    .logo-partners-mobile img {width:100%;max-width:500px}
 }
 
 @media screen and (max-width: 767px) {
