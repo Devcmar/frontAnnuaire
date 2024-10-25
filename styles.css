@@ -5,6 +5,19 @@ body {
     padding: 0px;
 }
 
+.logo-partners {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
+
+.logo-partners img {
+    max-width: 350px;
+}
+
+.logo-partners-mobile {display:none}
+
 .title {
     position: relative;
     font-family: 'Montserrat', Arial, sans-serif;
