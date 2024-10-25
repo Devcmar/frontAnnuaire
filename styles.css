@@ -82,7 +82,7 @@ body {
 }
 
 .criteria-selector-top > div {
-    width: 43%;
+    width: 47%;
 }
 
 .select2-results {
@@ -299,7 +299,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .select2-container {
-    width: 300px !important;
+    width: 100% !important;
 }
 
 .select2-container.active {
