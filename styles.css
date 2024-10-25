@@ -28,7 +28,7 @@ body {
     font-style: normal;
     text-align: center;
     line-height: 1;
-    margin: 2vh auto 0;
+    margin: 4vh auto 0;
     top: 25px;
 }
 
@@ -65,8 +65,8 @@ body {
 
 .intro-text {
     max-width: 700px;
-    padding: 20px 20px 0;
-    text-align: center;
+    padding: 20px 10px 0;
+    text-align: justify;
     color: #0F3250;
     font-family:'Montserrat', Arial, sans-serif;
 }
@@ -446,6 +446,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     border-radius: 40px !important;
     background-color: #f2f4f7 !important;
     border: 0px !important;
+    text-align: justify;
 }
 
 .card h2 {
@@ -547,7 +548,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .margin-bottom {
-    margin-bottom: 7.5px;
+    margin-bottom: 10px;
 }
 
 .line-height {
@@ -601,12 +602,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 @media screen and (max-width: 1200px) {
-    .title {margin:4vh auto 0}
     .logo-partners img {max-width:280px}
 }
 
 @media screen and (max-width: 992px) {
-    .title {margin:2vh auto 0}
     .logo-partners {display:none}
     .logo-partners-mobile {padding:0 40px;display:block}
     .logo-partners-mobile img {width:100%;max-width:500px}
