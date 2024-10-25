@@ -600,6 +600,17 @@ input[type="range"]:active::-webkit-slider-thumb {
     margin: 10px;
 }
 
+@media screen and (max-width: 1200px) {
+    .title {margin:4vh auto 0}
+    .logo-partners img {max-width:280px}
+}
+
+@media screen and (max-width: 992px) {
+    .logo-partners {display:none}
+    .logo-partners-mobile {display:block}
+    .logo-partners-mobile img {max-width:100%}
+}
+
 @media screen and (max-width: 767px) {
     .criteria-selector-top {
         display: block;
