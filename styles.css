@@ -233,7 +233,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .search-ref {
-    width: fit-content;
+    width: 47%;
     position: relative;
     display: inline-block;
     margin-bottom: 15px;
