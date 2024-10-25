@@ -553,6 +553,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .line-height {
     margin-bottom: 10px;
+    text-align: justify;
     line-height: 20px;
     font-family: 'Montserrat', Arial, sans-serif;
 }
