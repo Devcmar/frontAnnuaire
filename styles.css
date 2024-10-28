@@ -337,7 +337,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     color: black;
 }
 
-.select2-container--default .select2-selection--multiple .select2-selection__rendered:first-child {
+#secteur .select2-container--default .select2-selection--multiple .select2-selection__rendered:first-child {
     padding: 0 15px !important;
 }
 
