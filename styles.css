@@ -325,8 +325,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     border-radius: 50px !important;
     padding: 5px 15px !important;
     color: white;
-    white-space: normal;
-    overflow: visible;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
     z-index: 5;
 }
 
