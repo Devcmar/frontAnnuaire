@@ -1,247 +1,248 @@
 
 
 function slideOne(name) {
-  var sliderOne = document.getElementById("slider-1"+name);
-  var sliderTwo = document.getElementById("slider-2"+name);
-  var displayValOne = document.getElementById("range1" +name);
-  minGapOne = getMinGapOne(name);
+    var sliderOne = document.getElementById("slider-1" + name);
+    var sliderTwo = document.getElementById("slider-2" + name);
+    var displayValOne = document.getElementById("range1" + name);
+    minGapOne = getMinGapOne(name);
 
-  if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
-      sliderOne.value = parseInt(sliderTwo.value) - minGapOne;
-  }
+    if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
+        sliderOne.value = parseInt(sliderTwo.value) - minGapOne;
+    }
 
-  // Formatage avec séparateur de milliers
-  if (name == "Effectif"){
-    displayValOne.textContent = formatNumbers(sliderOne.value);
-  } else {
-    displayValOne.textContent = formatNumbersEuros(sliderOne.value);
-  }
-  fillColor(sliderOne, sliderTwo, name);
+    // Formatage avec séparateur de milliers
+    if (name == "Effectif") {
+        displayValOne.textContent = formatNumbers(sliderOne.value);
+    } else {
+        displayValOne.textContent = formatNumbersEuros(sliderOne.value);
+    }
+    fillColor(sliderOne, sliderTwo, name);
 }
 
 function slideTwo(name) {
-  console.log("---------slideTwo-----------");
-  var sliderOne = document.getElementById("slider-1"+name);
-  var sliderTwo = document.getElementById("slider-2"+name);
-  var displayValTwo = document.getElementById("range2"+name);
-  console.log("displayValTwo", displayValTwo);
-  
-  minGapOne = getMinGapOne(name);
+    console.log("---------slideTwo-----------");
+    var sliderOne = document.getElementById("slider-1" + name);
+    var sliderTwo = document.getElementById("slider-2" + name);
+    var displayValTwo = document.getElementById("range2" + name);
+    console.log("displayValTwo", displayValTwo);
 
-  if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
-      sliderTwo.value = parseInt(sliderOne.value) + minGapOne;
-  }
+    minGapOne = getMinGapOne(name);
 
-  // Formatage avec séparateur de milliers
-  if (name == "Effectif"){
-    displayValTwo.textContent = formatNumbers(sliderTwo.value);
-  } else {
-    displayValTwo.textContent = formatNumbersEuros(sliderTwo.value);
-  }
-  fillColor(sliderOne, sliderTwo, name);
+    if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGapOne) {
+        sliderTwo.value = parseInt(sliderOne.value) + minGapOne;
+    }
+
+    // Formatage avec séparateur de milliers
+    if (name == "Effectif") {
+        displayValTwo.textContent = formatNumbers(sliderTwo.value);
+    } else {
+        displayValTwo.textContent = formatNumbersEuros(sliderTwo.value);
+    }
+    fillColor(sliderOne, sliderTwo, name);
 }
 
 function fillColor(sliderOne, sliderTwo, name) {
 
-    var sliderMaxValue = document.getElementById("slider-1"+name).max;
+    var sliderMaxValue = document.getElementById("slider-1" + name).max;
     sliderTrack = document.querySelector(".slider-track" + name);
     percent1 = (sliderOne.value / sliderMaxValue) * 100;
     percent2 = (sliderTwo.value / sliderMaxValue) * 100;
     sliderTrack.style.background = `#ffffff`;
 }
 
-function getMinGapOne(name){
+function getMinGapOne(name) {
 
-    if (name == "Prix"){
-      minGapOne = 0;}
-      else if (name == "Loyer"){
+    if (name == "Prix") {
         minGapOne = 0;
-      }
-      else if (name == "Effectif"){
+    }
+    else if (name == "Loyer") {
         minGapOne = 0;
-      }
-      return minGapOne
+    }
+    else if (name == "Effectif") {
+        minGapOne = 0;
+    }
+    return minGapOne
 }
 
 function fetchData(params) {
 
-  document.querySelector('.loader-container').style.display = 'flex';
-  window.scrollTo(0, document.body.scrollHeight);
+    document.querySelector('.loader-container').style.display = 'flex';
+    window.scrollTo(0, document.body.scrollHeight);
 
-var secteurSelect = document.getElementById('secteur');
-var secteur = Array.from(secteurSelect.selectedOptions).map(option => option.value);
-console.log("secteurs:", secteur);
-
-
-var activiteSelect = document.getElementById('activite');
-var activite = Array.from(activiteSelect.selectedOptions).map(option => option.value);
-console.log("activites:", activite);
-
-var searchInputVille = document.getElementById('searchInput').value;
-if (searchInputVille != ""){
-    var codePostal = searchInputVille.match(/\((\d+)\)/)[1];; 
-    var cityLabel = searchInputVille.split(' (')[0].trim();
-    console.log("  cityLabel   ",cityLabel," codePostal   ", codePostal );
-} else {
-    var codePostal = ""; 
-    var cityLabel = "";
-}
-
-var EffectifMin = document.getElementById('slider-1Effectif').value;
-console.log("EffectifMin",EffectifMin);
-
-var EffectifMax = document.getElementById('slider-2Effectif').value;
-console.log("EffectifMax",EffectifMax);
-
-var LoyerMin = document.getElementById('slider-1Loyer').value;
-console.log("LoyerMin",LoyerMin);
-
-var LoyerMax = document.getElementById('slider-2Loyer').value;
-console.log("LoyerMax",LoyerMax);
-
-var PrixMin = document.getElementById('slider-1Prix').value;
-console.log("PrixMin",PrixMin);
-
-var PrixMax = document.getElementById('slider-2Prix').value;
-console.log("PrixMax",PrixMax);
-
-var reference = document.getElementById('annonce').value;
-console.log("reference",reference);
-
-var departement = document.getElementById('departement').value;;
-console.log("departement",departement);
-
-var checkbox = false;
-document.getElementById("achatMursCheckbox").checked == true ? checkbox = "OUI" : checkbox = "NON";
-console.log("checkbox",checkbox);   
+    var secteurSelect = document.getElementById('secteur');
+    var secteur = Array.from(secteurSelect.selectedOptions).map(option => option.value);
+    console.log("secteurs:", secteur);
 
 
-// Objet avec tous les paramètres à inclure dans l'URL
-var params = {
-secteur: secteur ?? null,
-activite: activite ?? null,
-codePostal: codePostal ?? null,
-cityLabel: cityLabel ?? null,
-PrixMin: PrixMin ?? null,
-PrixMax: PrixMax ?? null,
-LoyerMin: LoyerMin ?? null,
-LoyerMax: LoyerMax ?? null,
-EffectifMin: EffectifMin ?? null,
-EffectifMax: EffectifMax ?? null,
-departement: departement ?? null,
-reference: reference ?? null,
-checkbox : checkbox ?? null
-};
+    var activiteSelect = document.getElementById('activite');
+    var activite = Array.from(activiteSelect.selectedOptions).map(option => option.value);
+    console.log("activites:", activite);
+
+    var searchInputVille = document.getElementById('searchInput').value;
+    if (searchInputVille != "") {
+        var codePostal = searchInputVille.match(/\((\d+)\)/)[1];;
+        var cityLabel = searchInputVille.split(' (')[0].trim();
+        console.log("  cityLabel   ", cityLabel, " codePostal   ", codePostal);
+    } else {
+        var codePostal = "";
+        var cityLabel = "";
+    }
+
+    var EffectifMin = document.getElementById('slider-1Effectif').value;
+    console.log("EffectifMin", EffectifMin);
+
+    var EffectifMax = document.getElementById('slider-2Effectif').value;
+    console.log("EffectifMax", EffectifMax);
+
+    var LoyerMin = document.getElementById('slider-1Loyer').value;
+    console.log("LoyerMin", LoyerMin);
+
+    var LoyerMax = document.getElementById('slider-2Loyer').value;
+    console.log("LoyerMax", LoyerMax);
+
+    var PrixMin = document.getElementById('slider-1Prix').value;
+    console.log("PrixMin", PrixMin);
+
+    var PrixMax = document.getElementById('slider-2Prix').value;
+    console.log("PrixMax", PrixMax);
+
+    var reference = document.getElementById('annonce').value;
+    console.log("reference", reference);
+
+    var departement = document.getElementById('departement').value;;
+    console.log("departement", departement);
+
+    var checkbox = false;
+    document.getElementById("achatMursCheckbox").checked == true ? checkbox = "OUI" : checkbox = "NON";
+    console.log("checkbox", checkbox);
 
 
-      const urlStart = "https://transrep.cmar-paca.fr:2020/getSheetData";
-        fetch(urlStart, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(params)
-          })  // Remplace l'URL si nécessaire
-            .then(response => {
-                // Vérifie si la réponse est OK (statut 200)
-                if (!response.ok) {
-                    throw new Error('Erreur réseau : ' + response.statusText);
-                }
-                return response.json();  // Transforme la réponse en JSON
-            })
-            .then(data => {
-              document.querySelector('.loader-container').style.display = 'none';
-              const container = document.getElementById('annonces-container');
-              container.innerHTML = '';
-              const resultDiv = document.getElementById('result');
-              resultDiv.innerHTML = "";
-              const numberOfOffers = data.length;
+    // Objet avec tous les paramètres à inclure dans l'URL
+    var params = {
+        secteur: secteur ?? null,
+        activite: activite ?? null,
+        codePostal: codePostal ?? null,
+        cityLabel: cityLabel ?? null,
+        PrixMin: PrixMin ?? null,
+        PrixMax: PrixMax ?? null,
+        LoyerMin: LoyerMin ?? null,
+        LoyerMax: LoyerMax ?? null,
+        EffectifMin: EffectifMin ?? null,
+        EffectifMax: EffectifMax ?? null,
+        departement: departement ?? null,
+        reference: reference ?? null,
+        checkbox: checkbox ?? null
+    };
+
+
+    const urlStart = "https://transrep.cmar-paca.fr:2020/getSheetData";
+    fetch(urlStart, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    })  // Remplace l'URL si nécessaire
+        .then(response => {
+            // Vérifie si la réponse est OK (statut 200)
+            if (!response.ok) {
+                throw new Error('Erreur réseau : ' + response.statusText);
+            }
+            return response.json();  // Transforme la réponse en JSON
+        })
+        .then(data => {
+            document.querySelector('.loader-container').style.display = 'none';
+            const container = document.getElementById('annonces-container');
+            container.innerHTML = '';
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = "";
+            const numberOfOffers = data.length;
             resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> <span class="offers-text">offres correspondent à votre recherche</span>`;
-              // Parcourt chaque annonce et génère une carte
-              data.reverse();
-              data.forEach(annonce => {
-                
-                  container.innerHTML += createCard(annonce);
-              });
+            // Parcourt chaque annonce et génère une carte
+            const reversedData = data.slice().reverse();
+            reversedData.forEach(annonce => {
 
-              resultDiv.scrollIntoView({ behavior: 'smooth' });
-          })
-          .catch(error => {
-              console.error('Erreur lors de la récupération des données:', error);
-          });
-}
+                container.innerHTML += createCard(annonce);
+            });
 
-function fetchActivite( ){
-
-      fetch('activites.csv')
-      .then(response => response.text())
-      .then(data => {
-        // Séparer chaque ligne du fichier CSV
-        const rows = data.split('\n');
-        rows.sort();
-        
-        // Récupérer la liste déroulante <select>
-        const selectElement = document.querySelector('.form-select.activite');
-        
-        // Pour chaque ligne, créer une nouvelle option et l'ajouter au <select>
-        rows.forEach((row, index) => {
-          const trimmedRow = row.trim();  
-          if (trimmedRow) {
-            const option = document.createElement('option');
-            option.value = trimmedRow;  
-            option.text = trimmedRow;
-            selectElement.appendChild(option);
-          }
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des données:', error);
         });
-      })
-      .catch(error => {
-        console.error('Erreur lors du chargement du fichier CSV:', error);
-      });
+}
+
+function fetchActivite() {
+
+    fetch('activites.csv')
+        .then(response => response.text())
+        .then(data => {
+            // Séparer chaque ligne du fichier CSV
+            const rows = data.split('\n');
+            rows.sort();
+
+            // Récupérer la liste déroulante <select>
+            const selectElement = document.querySelector('.form-select.activite');
+
+            // Pour chaque ligne, créer une nouvelle option et l'ajouter au <select>
+            rows.forEach((row, index) => {
+                const trimmedRow = row.trim();
+                if (trimmedRow) {
+                    const option = document.createElement('option');
+                    option.value = trimmedRow;
+                    option.text = trimmedRow;
+                    selectElement.appendChild(option);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement du fichier CSV:', error);
+        });
 
 }
 
-async function searchBar () {
-      const query = searchInput.value.toLowerCase();
-      var suggestionsContainer = document.getElementById('suggestions');
-      suggestionsContainer.innerHTML = '';
-      
-      if (query.length === 0) {
-          suggestionsContainer.style.display = 'none';
-          return;
-      }
-  
-      // Filtrage des villes en fonction de la recherche
-      const filteredData = cities.filter(item =>
-          item.label.toLowerCase().includes(query) || item.code_postale.includes(query)
-      );
-  
-  
-      if (filteredData.length > 0) {
-          suggestionsContainer.style.display = 'block';
-          filteredData.forEach(item => {
-  
-              
-              var div = document.createElement('div');
-              div.className = 'suggestion-item';
-              div.textContent = `${item.label} (${item.code_postale})`;
-  
-              div.addEventListener('click', function() {
-                  var distanceDivs = document.querySelectorAll('.distance-div');
-                  distanceDivs.forEach(div => div.remove());
-                  
+async function searchBar() {
+    const query = searchInput.value.toLowerCase();
+    var suggestionsContainer = document.getElementById('suggestions');
+    suggestionsContainer.innerHTML = '';
 
-  
-                  // Mettre à jour le champ de saisie avec le texte sélectionné
-                  searchInput.value = `${item.label} (${item.code_postale})`;
-                  // Réinitialiser les suggestions
-                  suggestionsContainer.innerHTML = '';
-                  suggestionsContainer.style.display = 'none';
-              });
-              suggestionsContainer.appendChild(div);
-          });
-      } else {
-          suggestionsContainer.style.display = 'none';
-      }
+    if (query.length === 0) {
+        suggestionsContainer.style.display = 'none';
+        return;
+    }
+
+    // Filtrage des villes en fonction de la recherche
+    const filteredData = cities.filter(item =>
+        item.label.toLowerCase().includes(query) || item.code_postale.includes(query)
+    );
+
+
+    if (filteredData.length > 0) {
+        suggestionsContainer.style.display = 'block';
+        filteredData.forEach(item => {
+
+
+            var div = document.createElement('div');
+            div.className = 'suggestion-item';
+            div.textContent = `${item.label} (${item.code_postale})`;
+
+            div.addEventListener('click', function () {
+                var distanceDivs = document.querySelectorAll('.distance-div');
+                distanceDivs.forEach(div => div.remove());
+
+
+
+                // Mettre à jour le champ de saisie avec le texte sélectionné
+                searchInput.value = `${item.label} (${item.code_postale})`;
+                // Réinitialiser les suggestions
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.style.display = 'none';
+            });
+            suggestionsContainer.appendChild(div);
+        });
+    } else {
+        suggestionsContainer.style.display = 'none';
+    }
 };
 
 function handleInputEvent(event) {
@@ -249,54 +250,55 @@ function handleInputEvent(event) {
 }
 
 function loadCSVSync(filePath) {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', filePath, false);  // false for synchronous request
-  xhr.send(null);
-  if (xhr.status === 200) {
-      return xhr.responseText;
-  } else {
-      console.error("Erreur de chargement du fichier CSV:", xhr.status, xhr.statusText);
-      return null;
-  }
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', filePath, false);  // false for synchronous request
+    xhr.send(null);
+    if (xhr.status === 200) {
+        return xhr.responseText;
+    } else {
+        console.error("Erreur de chargement du fichier CSV:", xhr.status, xhr.statusText);
+        return null;
+    }
 }
 
 function parseCSV(csvText) {
-  const lines = csvText.trim().split('\n');
-  const headers = lines[0].split(';');
-  const data = lines.slice(1).map(line => {
-      const values = line.split(';');
-      return headers.reduce((obj, header, index) => {
-          obj[header.trim()] = cleanValue(values[index]);
-          return obj;
-      }, {});
-  });
-  return data;
+    const lines = csvText.trim().split('\n');
+    const headers = lines[0].split(';');
+    const data = lines.slice(1).map(line => {
+        const values = line.split(';');
+        return headers.reduce((obj, header, index) => {
+            obj[header.trim()] = cleanValue(values[index]);
+            return obj;
+        }, {});
+    });
+    return data;
 }
 
 function cleanValue(value) {
-  return value.replace(/[\r\n]+/g, '').trim();
+    return value.replace(/[\r\n]+/g, '').trim();
 }
 
 function createCard(annonce) {
 
-  var departement = "";
-  if (annonce.departement == "06") {
-      departement = "Alpes-Maritimes (06)";
-  } else if (annonce.departement == "04") {
-      departement = "Alpes-de-Haute-Provence (04)";
-  } else if (annonce.departement == "05") {
-      departement = "Hautes-Alpes (05)";
-  } else if (annonce.departement == "13") {
-      departement = "Bouches-du-Rhône (13)";
-  } else if (annonce.departement == "83") {
-      departement = "Var (83)";
-  } else if (annonce.departement == "84") {
-      departement = "Vaucluse (84)";}
+    var departement = "";
+    if (annonce.departement == "06") {
+        departement = "Alpes-Maritimes (06)";
+    } else if (annonce.departement == "04") {
+        departement = "Alpes-de-Haute-Provence (04)";
+    } else if (annonce.departement == "05") {
+        departement = "Hautes-Alpes (05)";
+    } else if (annonce.departement == "13") {
+        departement = "Bouches-du-Rhône (13)";
+    } else if (annonce.departement == "83") {
+        departement = "Var (83)";
+    } else if (annonce.departement == "84") {
+        departement = "Vaucluse (84)";
+    }
 
 
 
-  annonce.departement
-  return `
+    annonce.departement
+    return `
       <div class="card">
           <div class="reference-card margin-bottom">Réf. ${annonce.numeroAnnonce}</div>
           <div class="titreAnnonce-card margin-bottom">${annonce.titreAnnonce.toUpperCase()}</div>
@@ -314,18 +316,18 @@ function createCard(annonce) {
 }
 
 function formatNumbersEuros(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+ " €";
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €";
 }
 
 function formatNumbers(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     function appendSearchIcon() {
         const searchIconSpan = document.createElement('span');
         searchIconSpan.classList.add('search-icon');
-    
+
         searchIconSpan.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 256 256" style="max-width:20px;max-height:20px;transform: translateX(-35px);">
                 <g fill="#e94b3c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -335,30 +337,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 </g>
             </svg>
         `;
-    
+
         const secteurSelect = document.querySelector('#secteur');
         const activiteSelect = document.querySelector('#activite');
-    
+
         if (secteurSelect) {
             const secteurSearchInput = secteurSelect.nextElementSibling.querySelector('.select2-search__field');
             secteurSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
             console.error('Secteur select not found.');
         }
-    
+
         if (activiteSelect) {
             const activiteSearchInput = activiteSelect.nextElementSibling.querySelector('.select2-search__field');
             activiteSearchInput.parentNode.appendChild(searchIconSpan.cloneNode(true));
         } else {
             console.error('Activite select not found.');
         }
-    
+
         function toggleIconVisibilityOne(select, icon) {
             if (!icon) {
                 console.error("Icon not found for select:", select);
                 return;
             }
-    
+
             const selectedOptions = Array.from(select.selectedOptions);
             if (selectedOptions.length === 0) {
                 icon.style.display = "inline-block";
@@ -366,31 +368,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 icon.style.display = "none";
             }
         }
-    
+
         [secteurSelect, activiteSelect].forEach(select => {
             if (select) {
                 const icon = select.nextElementSibling.querySelector('.search-icon');
-    
+
                 if (!icon) {
                     console.error("Search icon not found for select:", select);
                     return;
                 }
-    
+
                 select.addEventListener("change", function () {
                     toggleIconVisibilityOne(select, icon);
                 });
-    
+
                 toggleIconVisibilityOne(select, icon);
             }
         });
     }
-    
-    $(document).ready(function() {
+
+    $(document).ready(function () {
         $('#secteur').select2();
         $('#activite').select2();
         appendSearchIcon();
     });
-    
+
     setTimeout(appendSearchIcon, 500);
 
     const searchInput = document.getElementById("searchInput");
@@ -444,11 +446,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const selectElement = document.getElementById('departement');
 
-    selectElement.addEventListener('change', function() {
-      if (selectElement.value !== "") {
-        selectElement.classList.add('no-bg');
-      } else {
-        selectElement.classList.remove('no-bg');
-      }
+    selectElement.addEventListener('change', function () {
+        if (selectElement.value !== "") {
+            selectElement.classList.add('no-bg');
+        } else {
+            selectElement.classList.remove('no-bg');
+        }
     });
 });
