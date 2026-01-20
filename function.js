@@ -158,6 +158,7 @@ checkbox : checkbox ?? null
               const numberOfOffers = data.length;
             resultDiv.innerHTML = `<span class="number">${numberOfOffers}</span> <span class="offers-text">offres correspondent à votre recherche</span>`;
               // Parcourt chaque annonce et génère une carte
+              data.reverse();
               data.forEach(annonce => {
                 
                   container.innerHTML += createCard(annonce);
